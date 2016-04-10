@@ -1,6 +1,6 @@
 ---
 layout: blog_by_category
 title: 'Other'
-category: other
+category: Other
 permalink: /Other/
 ---
