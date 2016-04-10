@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
 baseurl: "" # Set it to "" if use for personal site. The subpath of your site, e.g. /blog/
-url: "https://fengzhichu.com/fengzhichu-theme" # the base hostname & protocol for your site
+url: "http://Alicture.github.io/" # the base hostname & protocol for your site
 imageurl: "https://source.unsplash.com/category/nature/2600x500" #"https://unsplash.it/2600/500?random"
 
 # THEME-SPECIFIC CONFIGURATION
@@ -9,7 +9,7 @@ theme:
   title: Alicture's Blog
   #avatar: avatar.png
   hometitle: Home #display on navigation menu.
-  yoursitetitle: YOUR LOGO
+  yoursitetitle: Alicture
   gravatar: # Email MD5 hash
   description: "Alicture" # used by search engines
   visiblewords: 300
@@ -20,7 +20,7 @@ theme:
   header_text_feature_image: img/sample_feature_img.png
   place_holder_image: img/sample_feature_img.png
   footer_text: >
-   <a href="https://yoursite.com">YOUR TITLE</a> 
+   <a href="http://Alicture.github.io">Alicture</a> 
 
   # Icons
   rss: false
@@ -66,7 +66,7 @@ theme:
   post_navigation: false
 
 # PAGINATION
-enforce_ssl: "fengzhichu.com"
+enforce_ssl: "Alicture.github.io"
 paginate: 5
 paginate_path: "blog/page:num"
 permalink: blog/:title/ 
