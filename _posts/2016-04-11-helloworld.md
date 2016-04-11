@@ -4,8 +4,9 @@ comments: true
 layout: post
 category: other
 publised: true
-title: 如何使用Jekyll的Category和Tag
+title: HelloWorld
 category: other
+tag: other
 ---
 
 # HelloWorld

@@ -1,6 +1,6 @@
 ---
 layout: blog_by_category
 title: 'WebDevelop'
-category: WebDev
+category: webdev
 permalink: /WebDev/
 ---
