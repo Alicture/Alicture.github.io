@@ -1,13 +1,12 @@
-  ---
+
     author: Alicture
     comments: true
     date: 2016-04-11 10:51:42+00:00
     layout: post
     title: HelloWorld
     published: true
-    categories: other
-    tags: other
-  ---
+    categories: Other
+    tags: Other
 # HelloWorld
 
 >如你所见。这是我的第一篇博客。
