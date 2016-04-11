@@ -5,21 +5,23 @@
     <atom:link href="http://Alicture.github.io//feed.xml" rel="self" type="application/rss+xml"/>
     <link>http://Alicture.github.io//</link>
     <description>Alicture</description>
-    <pubDate>Mon, 11 Apr 2016 12:38:00 +0800</pubDate>
+    <pubDate>Mon, 11 Apr 2016 12:42:34 +0800</pubDate>
     
       <item>
         <title>Helloworld</title>
         <link>http://Alicture.github.io//blog/helloworld/</link>
         <guid isPermaLink="true">http://Alicture.github.io//blog/helloworld/</guid>
-        <description>&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-text&quot; data-lang=&quot;text&quot;&gt;author: Alicture
+        <description>&lt;hr&gt;
+
+&lt;p&gt;author: Alicture
 comments: true
-date: 2016-04-11 10:51:42+00:00
 layout: post
-title: HelloWorld
-published: true
-categories: Other
-tags: Other
-&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+date: 2016-04-11 10:51:42+00:00
+title: 如何使用Jekyll的Category和Tag
+category: other&lt;/p&gt;
+
+&lt;hr&gt;
+
 &lt;h1&gt;HelloWorld&lt;/h1&gt;
 
 &lt;blockquote&gt;

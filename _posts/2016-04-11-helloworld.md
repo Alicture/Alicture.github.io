@@ -1,12 +1,15 @@
 
-    author: Alicture
-    comments: true
-    date: 2016-04-11 10:51:42+00:00
-    layout: post
-    title: HelloWorld
-    published: true
-    categories: Other
-    tags: Other
+---
+
+author: Alicture
+comments: true
+layout: post
+date: 2016-04-11 10:51:42+00:00
+title: 如何使用Jekyll的Category和Tag
+category: other
+
+---
+
 # HelloWorld
 
 >如你所见。这是我的第一篇博客。
