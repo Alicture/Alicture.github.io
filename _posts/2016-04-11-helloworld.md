@@ -5,8 +5,8 @@
     layout: post
     title: HelloWorld
     published: true
-    categories: Other
-    tags: Other
+    categories: other
+    tags: other
   ---
 # HelloWorld
 
