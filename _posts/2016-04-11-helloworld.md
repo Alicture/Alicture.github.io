@@ -4,10 +4,9 @@
     date: 2016-04-11 10:51:42+00:00
     layout: post
     title: HelloWorld
-    categories:
-    - other
-    tags:
-   	- other
+    published: true
+    categories: Other
+    tags: Other
   ---
 # HelloWorld
 
