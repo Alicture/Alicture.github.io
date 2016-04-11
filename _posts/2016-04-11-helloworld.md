@@ -3,9 +3,11 @@ author: Alicture
 comments: true
 layout: post
 category: other
+publised: true
 title: 如何使用Jekyll的Category和Tag
 category: other
 ---
+
 # HelloWorld
 
 >如你所见。这是我的第一篇博客。

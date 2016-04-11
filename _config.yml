@@ -1,6 +1,6 @@
 # SITE CONFIGURATION
 baseurl: "" # Set it to "" if use for personal site. The subpath of your site, e.g. /blog/
-url: "http://Alicture.github.io/" # the base hostname & protocol for your site
+url: "http://Alicture.com/" # the base hostname & protocol for your site
 imageurl: "https://source.unsplash.com/category/nature/2600x500" #"https://unsplash.it/2600/500?random"
 
 # THEME-SPECIFIC CONFIGURATION
@@ -20,7 +20,7 @@ theme:
   header_text_feature_image: img/sample_feature_img.png
   place_holder_image: img/sample_feature_img.png
   footer_text: >
-   <a href="http://Alicture.github.io">Alicture</a> 
+   <a href="http://Alicture.com">Alicture</a> 
 
   # Icons
   rss: false
@@ -47,7 +47,7 @@ theme:
 
   # Scripts
   google_analytics: # Tracking ID, e.g. "UA-000000-01"
-  disqus_shortname:
+  disqus_shortname: Alicture
   katex: true # Enable if using math markup
 
   # Localization strings
@@ -66,7 +66,7 @@ theme:
   post_navigation: false
 
 # PAGINATION
-enforce_ssl: "Alicture.github.io"
+enforce_ssl: "Alicture.com"
 paginate: 5
 paginate_path: "blog/page:num"
 permalink: blog/:title/ 
