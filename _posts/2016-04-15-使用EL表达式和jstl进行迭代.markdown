@@ -9,8 +9,9 @@ tag: java
 ---
 * 首先导入jstl包,设置前缀
 
-{%highlight jsp%}
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+{%highlight%}
+	<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
 {% endhighlight%}
 
 * list示例
@@ -23,6 +24,7 @@ list.add(new Person("ccc"));
 list.add(new Person("ddd"));
 request.setAttribute("list", list);
 %>
+
 <c:forEach var="person" items="${list }">
 
 ${person.name }<br>

@@ -78,6 +78,9 @@ sechby:
 
 # BUILD SETTINGS
 markdown: redcarpet
+redcarpet:
+  extensions: ["fenced_code_blocks", "autolink", "tables", "strikethrough"]
+  
 highlighter: pygments
 sass:
   sass_dir: _sass
@@ -85,3 +88,4 @@ sass:
 
 gems:
   - jekyll-paginate
+
