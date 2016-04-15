@@ -1,19 +1,19 @@
----
-layout: default
----
-<article class="feature-image">
-  	<div style="background-image: url('{{ site.baseurl }}/{{ site.theme.place_holder_image }}')"/>
-  	<header style="background-image: url('{{ site.imageurl }}')">
-    <h1 class="call-out-title">{{ page.title }}</h1>
-    </header>
-</article>
+{% include header.html %}
 
-<article>
-	<section class="post-content">{{ content }}</section>
-</article>
-<!--article {% if page.feature-img %}class="feature-image"{% endif %}>
-  <header style="background-image: url('{{ site.baseurl }}/{{ page.feature-img }}')">
-    <h1 class="call-out-title">{{ page.title }}</h1>
-  </header>
-  <section class="post-content">{{ content }}</section>
-</article-->
+<div class="wrapper">
+  <div class="content">
+    <div class="container container-center">
+      <div class="row">
+        <div class="col-md-8">
+          <div class="well">
+            {{ content }}
+          </div>
+        </div>
+        <div class="col-md-4 hidden-xs">
+          {% include sidebar.html %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% include footer.html %}
+</div>

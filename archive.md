@@ -1,23 +1,19 @@
 ---
 layout: page
-title: Archive
-permalink: /Archives/
+title: Blog archive
 ---
-<section id="archive">
-  {%for post in site.posts %} 
-    {% unless post.next %}
-      <h3>{{ post.date | date: '%Y' }}</h3>
-      <ul class="this">
-    {% else %}
-      {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
-      {% capture nyear %}{{ post.next.date | date: '%Y' }}{% endcapture %}
-      {% if year != nyear %}
-        </ul>
-        <h3>{{ post.date | date: '%Y' }}</h3>
-        <ul class="past">
-      {% endif %}
-    {% endunless %}
-      <li><time>{{ post.date | date:"%m月%d日 " }}</time><a href="{{ post.url }}">{{ post.title }}</a></li>
-  {% endfor %}
-  </ul>
-</section>
+<div class="page-content wc-container">
+	<div class="post">
+		<h1>Blog Archive</h1>  
+		{% for post in site.posts %}
+			{% capture currentyear %}{{post.date | date: "%Y"}}{% endcapture %}
+			{% if currentyear != year %}
+				{% unless forloop.first %}</ul>{% endunless %}
+					<h5>{{ currentyear }}</h5>
+					<ul class="posts">
+					{% capture year %}{{currentyear}}{% endcapture %} 
+				{% endif %}
+			<li><a href="{{ post.url | prepend: site.baseurl | prepend: site.url}}">{{ post.title }}</a></li>
+	{% endfor %}
+	</div>
+</div>
