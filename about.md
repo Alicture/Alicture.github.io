@@ -4,10 +4,19 @@ title: About
 
 ---
 
-### Alicture
 
-* Java，JS，HTML，CSS，J2EE
-* Mac User,Web Developer
-* e-mail:lzp123518@gmail.com
-* weibo:groundwalker
-* location:Shanghai,CN
+``` json
+
+profile = {
+    name: "Alicture",
+    tags: [ "Linux User","OSX User", 
+    		"Web Developer"],
+    skills: ["html", "js", "css", "java","j2ee"],
+    location: "sh, cn",
+    contact: {
+        weibo: "groundwalker",
+        github: "https://github.com/alicture",
+        email: "lzp123518@gmail"
+    }
+}
+```
