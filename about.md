@@ -6,8 +6,10 @@ feature-img: "img/sample_feature_img_2.png"
 ---
 
 #Alicture
-* Java
-* 摄影
-* Web开发
+* Java，JS，HTML，CSS，J2EE
+* Mac User,Web Developer
+* e-mail:lzp123518@gmail.com
+* weibo:groundwalker
+* location:Shanghai,CN
 
-*向着Web全栈工程师进发！*
+

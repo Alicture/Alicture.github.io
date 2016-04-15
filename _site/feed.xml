@@ -2,15 +2,15 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Alicture&#39;s Blog</title>
-    <atom:link href="http://Alicture.github.io//feed.xml" rel="self" type="application/rss+xml"/>
-    <link>http://Alicture.github.io//</link>
+    <atom:link href="http://Alicture.com//feed.xml" rel="self" type="application/rss+xml"/>
+    <link>http://Alicture.com//</link>
     <description>Alicture</description>
-    <pubDate>Mon, 11 Apr 2016 13:22:37 +0800</pubDate>
+    <pubDate>Fri, 15 Apr 2016 11:09:56 +0800</pubDate>
     
       <item>
         <title>HelloWorld</title>
-        <link>http://Alicture.github.io//blog/helloworld/</link>
-        <guid isPermaLink="true">http://Alicture.github.io//blog/helloworld/</guid>
+        <link>http://Alicture.com//blog/helloworld/</link>
+        <guid isPermaLink="true">http://Alicture.com//blog/helloworld/</guid>
         <description>&lt;h1&gt;HelloWorld&lt;/h1&gt;
 
 &lt;blockquote&gt;
