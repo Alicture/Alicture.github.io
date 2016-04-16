@@ -1,5 +1,5 @@
 /* TEAM */
-Primary Contact: foo
+Primary Contact: Alicture
 Site: http://alicture.com/about/
 Twitter: https://twitter.com/
 
