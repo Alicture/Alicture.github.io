@@ -5,9 +5,8 @@ title: About
 ---
 
 
-``` json
-
-profile = {
+{% highlight JSON %}
+profile={
     name: "Alicture",
     tags: [ "Linux User","OSX User", 
     		"Web Developer"],
@@ -19,4 +18,4 @@ profile = {
         email: "lzp123518@gmail"
     }
 }
-```
+{% endhighlight %}
