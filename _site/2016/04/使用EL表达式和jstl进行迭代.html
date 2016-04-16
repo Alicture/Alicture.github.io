@@ -86,43 +86,43 @@
   <li>首先导入jstl包,设置前缀</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-jsp" data-lang="jsp">	&lt;%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%&gt;</code></pre></figure>
+<figure class="highlight"><pre><code class="language-java" data-lang="java">	<span class="o">&lt;%</span><span class="nd">@taglib</span> <span class="n">uri</span><span class="o">=</span><span class="s">"http://java.sun.com/jsp/jstl/core"</span> <span class="n">prefix</span><span class="o">=</span><span class="s">"c"</span><span class="o">%&gt;</span></code></pre></figure>
 
 <ul>
   <li>list示例</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-jsp" data-lang="jsp">&lt;%
-List list = new ArrayList();
-list.add(new Person("aaa"));
-list.add(new Person("bbb"));
-list.add(new Person("ccc"));
-list.add(new Person("ddd"));
-request.setAttribute("list", list);
-%&gt;
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">&lt;%</span>
+<span class="n">List</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"aaa"</span><span class="o">));</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"bbb"</span><span class="o">));</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"ccc"</span><span class="o">));</span>
+<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"ddd"</span><span class="o">));</span>
+<span class="n">request</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">"list"</span><span class="o">,</span> <span class="n">list</span><span class="o">);</span>
+<span class="o">%&gt;</span>
 
-&lt;c:forEach var="person" items="${list }"&gt;
+<span class="o">&lt;</span><span class="nl">c:</span><span class="n">forEach</span> <span class="n">var</span><span class="o">=</span><span class="s">"person"</span> <span class="n">items</span><span class="o">=</span><span class="s">"${list }"</span><span class="o">&gt;</span>
 
-${person.name }&lt;br&gt;
+<span class="err">$</span><span class="o">{</span><span class="n">person</span><span class="o">.</span><span class="na">name</span> <span class="o">}&lt;</span><span class="n">br</span><span class="o">&gt;</span>
 
-&lt;/c:forEach&gt;</code></pre></figure>
+<span class="o">&lt;/</span><span class="nl">c:</span><span class="n">forEach</span><span class="o">&gt;</span></code></pre></figure>
 
 <ul>
   <li>map示例</li>
 </ul>
 
-<figure class="highlight"><pre><code class="language-jsp" data-lang="jsp">&lt;%
-	Map map = new HashMap();
-	map.put("aa",new Person("aaa"))	;
-	map.put("bb",new Person("bbb"));
-	map.put("cc",new Person("ccc"));
-	request.setAttribute("map",map);
-%&gt;
-&lt;c:forEach var="entry" items="${map }"&gt;
+<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">&lt;%</span>
+	<span class="n">Map</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
+	<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"aa"</span><span class="o">,</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"aaa"</span><span class="o">))</span>	<span class="o">;</span>
+	<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"bb"</span><span class="o">,</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"bbb"</span><span class="o">));</span>
+	<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"cc"</span><span class="o">,</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"ccc"</span><span class="o">));</span>
+	<span class="n">request</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">"map"</span><span class="o">,</span><span class="n">map</span><span class="o">);</span>
+<span class="o">%&gt;</span>
+<span class="o">&lt;</span><span class="nl">c:</span><span class="n">forEach</span> <span class="n">var</span><span class="o">=</span><span class="s">"entry"</span> <span class="n">items</span><span class="o">=</span><span class="s">"${map }"</span><span class="o">&gt;</span>
 
-${entry.key }:${entry.value.name} &lt;br&gt;
+<span class="err">$</span><span class="o">{</span><span class="n">entry</span><span class="o">.</span><span class="na">key</span> <span class="o">}:</span><span class="err">$</span><span class="o">{</span><span class="n">entry</span><span class="o">.</span><span class="na">value</span><span class="o">.</span><span class="na">name</span><span class="o">}</span> <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
 
-&lt;/c:forEach&gt;</code></pre></figure>
+<span class="o">&lt;/</span><span class="nl">c:</span><span class="n">forEach</span><span class="o">&gt;</span></code></pre></figure>
 
 <p><em>注意此处entry.value获取到的是person对象,再获取name才是姓名值，并且map迭代的是entry</em></p>
 
