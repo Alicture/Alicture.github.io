@@ -1,0 +1,85 @@
+<blockquote>
+  <p>BaseServlet是一个很实用的工具。使用时继承他就可以了。使用了java的反射机制，使一个servlet可以包含多个方法。下面给出一个我写的BaseServlet</p>
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>
+<span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">tslanpu</span><span class="o">.</span><span class="na">test</span><span class="o">.</span><span class="na">utils</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.io.IOException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">java.lang.reflect.Method</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.ServletException</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServlet</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletRequest</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">javax.servlet.http.HttpServletResponse</span><span class="o">;</span>
+<span class="kn">import</span> <span class="nn">cn.itcast.filter.GetRequest</span><span class="o">;</span>
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">BaseServlet</span> <span class="kd">extends</span> <span class="n">HttpServlet</span> <span class="o">{</span>
+	<span class="kd">private</span> <span class="kd">static</span> <span class="kd">final</span> <span class="kt">long</span> <span class="n">serialVersionUID</span> <span class="o">=</span> <span class="mi">1L</span><span class="o">;</span>
+	<span class="cm">/**
+	 * BaseServlet用来作为其他Servlet的父类
+	 * @author Alicture
+	 *  若一个Servlet继承Baseservlet则一个servlet里可实现多个方法。
+	 *  原行=返回值类型 + 方法名称 + 参数列表
+	 */</span>
+	<span class="nd">@Override</span>
+	<span class="kd">public</span> <span class="kt">void</span> <span class="n">service</span><span class="o">(</span><span class="n">HttpServletRequest</span> <span class="n">request</span><span class="o">,</span> <span class="n">HttpServletResponse</span> <span class="n">response</span><span class="o">)</span>
+			<span class="kd">throws</span> <span class="n">ServletException</span><span class="o">,</span> <span class="n">IOException</span> <span class="o">{</span>
+		<span class="k">if</span><span class="o">(</span><span class="n">request</span><span class="o">.</span><span class="na">getMethod</span><span class="o">().</span><span class="na">equalsIgnoreCase</span><span class="o">(</span><span class="s">"get"</span><span class="o">)){</span>
+			<span class="n">request</span> <span class="o">=</span> <span class="k">new</span> <span class="n">GetRequest</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="s">"utf-8"</span><span class="o">);</span>	
+		<span class="o">}</span><span class="k">else</span><span class="o">{</span>
+			<span class="n">request</span><span class="o">.</span><span class="na">setCharacterEncoding</span><span class="o">(</span><span class="s">"utf-8"</span><span class="o">);</span><span class="c1">//处理post请求编码</span>
+		<span class="o">}</span>
+		<span class="n">response</span><span class="o">.</span><span class="na">setContentType</span><span class="o">(</span><span class="s">"text/html;charset=UTF-8"</span><span class="o">);</span><span class="c1">//处理响应编码</span>
+		
+		<span class="cm">/**
+		 * 1. 获取method方法，他是用户想调用的方法
+		 * 2. 把方法名称变为Method类的实例
+		 * 3. 通过invoke来调用
+		 */</span>
+		<span class="n">String</span> <span class="n">methodName</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="na">getParameter</span><span class="o">(</span><span class="s">"method"</span><span class="o">);</span>
+		<span class="n">Method</span> <span class="n">method</span> <span class="o">=</span> <span class="kc">null</span><span class="o">;</span>
+		<span class="cm">/**
+		 * 2.通过方法名称获取method对象
+		 */</span>
+		<span class="k">try</span> <span class="o">{</span>
+			<span class="n">method</span> <span class="o">=</span> <span class="k">this</span><span class="o">.</span><span class="na">getClass</span><span class="o">().</span><span class="na">getMethod</span><span class="o">(</span><span class="n">methodName</span><span class="o">,</span>
+					<span class="n">HttpServletRequest</span><span class="o">.</span><span class="na">class</span><span class="o">,</span> <span class="n">HttpServletResponse</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="s">"您调用的方法名"</span> <span class="o">+</span> <span class="n">methodName</span> <span class="o">+</span> <span class="s">"他不存在！"</span><span class="o">,</span> <span class="n">e</span><span class="o">);</span>
+		<span class="o">}</span>
+		
+		<span class="cm">/**
+		 * 3. 通过method方法调用
+		 */</span>
+		<span class="k">try</span> <span class="o">{</span>
+			<span class="n">String</span> <span class="n">result</span> <span class="o">=</span> <span class="o">(</span><span class="n">String</span><span class="o">)</span><span class="n">method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+			<span class="k">if</span><span class="o">(</span><span class="n">result</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="o">!</span><span class="n">result</span><span class="o">.</span><span class="na">trim</span><span class="o">().</span><span class="na">isEmpty</span><span class="o">())</span> <span class="o">{</span>
+				<span class="kt">int</span> <span class="n">index</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="na">indexOf</span><span class="o">(</span><span class="s">":"</span><span class="o">);</span>
+				<span class="k">if</span><span class="o">(</span><span class="n">index</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+					<span class="n">request</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">result</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+				<span class="o">}</span> <span class="k">else</span> <span class="o">{</span>
+					<span class="n">String</span> <span class="n">start</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="mi">0</span><span class="o">,</span> <span class="n">index</span><span class="o">);</span>
+					<span class="n">String</span> <span class="n">path</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="na">substring</span><span class="o">(</span><span class="n">index</span> <span class="o">+</span> <span class="mi">1</span><span class="o">);</span>
+					<span class="c1">//d:开头则转发，r：开头则跳转。</span>
+					<span class="k">if</span><span class="o">(</span><span class="n">start</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"d"</span><span class="o">))</span> <span class="o">{</span>
+						<span class="n">request</span><span class="o">.</span><span class="na">getRequestDispatcher</span><span class="o">(</span><span class="n">path</span><span class="o">).</span><span class="na">forward</span><span class="o">(</span><span class="n">request</span><span class="o">,</span> <span class="n">response</span><span class="o">);</span>
+					<span class="o">}</span> <span class="k">else</span> <span class="k">if</span><span class="o">(</span><span class="n">start</span><span class="o">.</span><span class="na">equals</span><span class="o">(</span><span class="s">"r"</span><span class="o">))</span> <span class="o">{</span>
+						<span class="n">response</span><span class="o">.</span><span class="na">sendRedirect</span><span class="o">(</span><span class="n">request</span><span class="o">.</span><span class="na">getContextPath</span><span class="o">()</span> <span class="o">+</span> <span class="n">path</span><span class="o">);</span>
+					<span class="o">}</span>
+				<span class="o">}</span>
+			<span class="o">}</span>
+		<span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+			<span class="k">throw</span> <span class="k">new</span> <span class="n">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+		<span class="o">}</span>
+	<span class="o">}</span>
+<span class="o">}</span>
+
+</code></pre>
+</div>
+<blockquote>
+  <p>BaseServlet的优点</p>
+</blockquote>
+
+<ul>
+  <li>可以大量减少servlet的数量。传统的一个servlet只能有一种方法。</li>
+  <li>使得业务逻辑更明了。相互之间有联系的方法放在一个servlet中，也方便了维护。</li>
+  <li>是一种优秀的编程思想。</li>
+</ul>

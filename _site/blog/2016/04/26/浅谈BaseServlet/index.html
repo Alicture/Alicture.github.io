@@ -17,29 +17,29 @@ Credits: http://alicture.com/disclosure
 
 <title>
   
-    Alicture's blog &middot; Alicture
+    浅谈BaseServlet &middot; Alicture
   
 </title>
 
 <!-- Search Engine Optimization -->
-<meta name="description" content="Blogging on ....">
+<meta name="description" content="浅谈BaseServlet并且使用代码实例来做示范，分析BaseServlet的优点。">
+<meta name="keywords" content="javaweb">
 
 
 
 
 
-
-<meta name="twitter:title" content="Alicture's blog">
-<meta name="twitter:description" content="Blogging on ....">
+<meta name="twitter:title" content="浅谈BaseServlet">
+<meta name="twitter:description" content="浅谈BaseServlet并且使用代码实例来做示范，分析BaseServlet的优点。">
 <meta name="twitter:creator" content="@">
 <!-- End Twitter Cards -->
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Alicture's blog">
-<meta property="og:description" content="Blogging on ....">
-<meta property="og:url" content="http://alicture.com/index.html">
+<meta property="og:title" content="浅谈BaseServlet">
+<meta property="og:description" content="浅谈BaseServlet并且使用代码实例来做示范，分析BaseServlet的优点。">
+<meta property="og:url" content="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/">
 <meta property="og:site_name" content="Alicture">
 
 <meta property="og:image" content="http://alicture.com/images/sitelogo.png">
@@ -83,7 +83,7 @@ Credits: http://alicture.com/disclosure
 <link rel="icon" type="image/png" sizes="192x192"  href="http://alicture.com/images/icons/android-icon-192x192.png">
 
 
-<link rel="canonical" href="http://alicture.com/">
+<link rel="canonical" href="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/">
 
 
 <!-- RSS -->
@@ -181,29 +181,28 @@ Credits: http://alicture.com/disclosure
       </div>
 
       <div class="container content">
-        <div class="posts">
+        <div class="post">
+  <h1 itemprop="name" class="post-title">浅谈BaseServlet</h1>
+  <span class="post-date" itemprop="datePublished" content="2016-04-26"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/" itemprop="url" title="Permanent link to this post">26 Apr 2016</a> </i></span>
   
-</div>
+  <span class="post-tags" itemprop="keywords" content="javaweb"><i class="fa fa-tags" title="page tags"></i> <a href="http://alicture.com/tags/#javaweb" title="Pages tagged javaweb" rel="tag">javaweb</a></span>
+    
+      <span class="social-icons"><a href="https://twitter.com/share?text=浅谈BaseServlet&amp;url=http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/&amp;via="  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
 
-<div class="posts">
-  
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/">
-        浅谈BaseServlet
-      </a>
-    </h1>
+<a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
+</span>
 
-  <span class="post-date indexpg" itemprop="datePublished" content="2016-04-26"><i class="fa fa-calendar" title="Date published"> 26 Apr 2016</i></span>
+    
+  <p>BaseServlet是一个很实用的工具。</p>
 
- BaseServlet是一个很实用的工具。
+<p>使用方法：创建Servlet时继承BaseServlet这个好爸爸。</p>
 
-使用方法：创建Servlet时继承BaseServlet这个好爸爸。
+<p>原理：使用了java的反射机制，使其可以调用一个servlet中包含的不同方法。</p>
 
-原理：使用了java的反射机制，使其可以调用一个servlet中包含的不同方法。
-
-下面给出一个很棒的BaseServlet。
+<p>下面给出一个很棒的BaseServlet。</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>
 <span class="kn">package</span> <span class="n">cn</span><span class="o">.</span><span class="na">tslanpu</span><span class="o">.</span><span class="na">test</span><span class="o">.</span><span class="na">utils</span><span class="o">;</span>
@@ -278,7 +277,7 @@ Credits: http://alicture.com/disclosure
 </code></pre>
 </div>
 <blockquote>
-  BaseServlet的优点
+  <p>BaseServlet的优点</p>
 </blockquote>
 
 <ul>
@@ -286,80 +285,78 @@ Credits: http://alicture.com/disclosure
   <li>使得业务逻辑更明了。相互之间有联系的方法放在一个servlet中，也方便了维护。</li>
   <li>是一种优秀的编程思想。</li>
 </ul>
- <a href="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/" title="Read more"><strong>Read more...</strong></a>
-  </div>
-  <hr class="transp" />
+
+  <hr>
   
+  <span class="post-date metafoot" itemprop="datePublished" content="2016-04-26"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/" itemprop="url" title="Permanent link to this post">26 Apr 2016</a> </i></span>
   
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://alicture.com/blog/2016/04/15/%E4%BD%BF%E7%94%A8EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cjstl%E8%BF%9B%E8%A1%8C%E8%BF%AD%E4%BB%A3/">
-        使用EL表达式和jstl进行迭代
-      </a>
-    </h1>
+  <span class="post-tags" itemprop="keywords" content="javaweb"><i class="fa fa-tags" title="page tags"></i> <a href="http://alicture.com/tags/#javaweb" title="Pages tagged javaweb" rel="tag">javaweb</a></span>
+    
+      <span class="social-icons"><a href="https://twitter.com/share?text=浅谈BaseServlet&amp;url=http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/&amp;via="  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
 
-  <span class="post-date indexpg" itemprop="datePublished" content="2016-04-15"><i class="fa fa-calendar" title="Date published"> 15 Apr 2016</i></span>
+<a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
+</span>
 
- <ul>
-  <li>首先导入jstl包,设置前缀</li>
-</ul>
+    
+</div>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java">	<span class="o">&lt;%</span><span class="nd">@taglib</span> <span class="n">uri</span><span class="o">=</span><span class="s">"http://java.sun.com/jsp/jstl/core"</span> <span class="n">prefix</span><span class="o">=</span><span class="s">"c"</span><span class="o">%&gt;</span></code></pre></figure>
 
+  <div class="printMsg">
+<table>
+  <thead>
+    <tr>
+      <th><i class="fa fa-twitter">@</i></th>
+      <th>QR code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><i class="fa fa-anchor"> http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/</i><br /><i class="fa fa-calendar"> 26-Apr-16</i><br /><i class="fa fa-creative-commons"> BY-NC-SA 4.0 http://alicture.com/disclosure</i></td>
+      <td><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/&choe=UTF-8" alt="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/" /></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<div class="page-break"></div>
+<div class="related">
+  <h2>Related Posts</h2>
 <ul>
-  <li>list示例</li>
+  
+    
+  
+     
+       
+        
+      
+    
+  
+     
+       
+        
+      
+    
+  
 </ul>
+</div>
 
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">&lt;%</span>
-<span class="n">List</span> <span class="n">list</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">();</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"aaa"</span><span class="o">));</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"bbb"</span><span class="o">));</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"ccc"</span><span class="o">));</span>
-<span class="n">list</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"ddd"</span><span class="o">));</span>
-<span class="n">request</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">"list"</span><span class="o">,</span> <span class="n">list</span><span class="o">);</span>
-<span class="o">%&gt;</span>
-
-<span class="o">&lt;</span><span class="nl">c:</span><span class="n">forEach</span> <span class="n">var</span><span class="o">=</span><span class="s">"person"</span> <span class="n">items</span><span class="o">=</span><span class="s">"${list }"</span><span class="o">&gt;</span>
-
-<span class="err">$</span><span class="o">{</span><span class="n">person</span><span class="o">.</span><span class="na">name</span> <span class="o">}&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-
-<span class="o">&lt;/</span><span class="nl">c:</span><span class="n">forEach</span><span class="o">&gt;</span></code></pre></figure>
-
-<ul>
-  <li>map示例</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java"><span class="o">&lt;%</span>
-	<span class="n">Map</span> <span class="n">map</span> <span class="o">=</span> <span class="k">new</span> <span class="n">HashMap</span><span class="o">();</span>
-	<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"aa"</span><span class="o">,</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"aaa"</span><span class="o">))</span>	<span class="o">;</span>
-	<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"bb"</span><span class="o">,</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"bbb"</span><span class="o">));</span>
-	<span class="n">map</span><span class="o">.</span><span class="na">put</span><span class="o">(</span><span class="s">"cc"</span><span class="o">,</span><span class="k">new</span> <span class="n">Person</span><span class="o">(</span><span class="s">"ccc"</span><span class="o">));</span>
-	<span class="n">request</span><span class="o">.</span><span class="na">setAttribute</span><span class="o">(</span><span class="s">"map"</span><span class="o">,</span><span class="n">map</span><span class="o">);</span>
-<span class="o">%&gt;</span>
-<span class="o">&lt;</span><span class="nl">c:</span><span class="n">forEach</span> <span class="n">var</span><span class="o">=</span><span class="s">"entry"</span> <span class="n">items</span><span class="o">=</span><span class="s">"${map }"</span><span class="o">&gt;</span>
-
-<span class="err">$</span><span class="o">{</span><span class="n">entry</span><span class="o">.</span><span class="na">key</span> <span class="o">}:</span><span class="err">$</span><span class="o">{</span><span class="n">entry</span><span class="o">.</span><span class="na">value</span><span class="o">.</span><span class="na">name</span><span class="o">}</span> <span class="o">&lt;</span><span class="n">br</span><span class="o">&gt;</span>
-
-<span class="o">&lt;/</span><span class="nl">c:</span><span class="n">forEach</span><span class="o">&gt;</span></code></pre></figure>
-
-<em>注意此处entry.value获取到的是person对象,再获取name才是姓名值，并且map迭代的是entry</em>
-
-<ul>
-  <li>在真正的项目中，jsp页面只做显示，是不允许写java代码的，此处只是作为示范，代码应该写在servlet里。</li>
-</ul>
- <a href="http://alicture.com/blog/2016/04/15/%E4%BD%BF%E7%94%A8EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cjstl%E8%BF%9B%E8%A1%8C%E8%BF%AD%E4%BB%A3/" title="Read more"><strong>Read more...</strong></a>
-  </div>
+<div class="prevnext">
+  
+    <a class="prevnext-item older" href="http://alicture.com/blog/2016/04/15/%E4%BD%BF%E7%94%A8EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cjstl%E8%BF%9B%E8%A1%8C%E8%BF%AD%E4%BB%A3/" title="使用EL表达式和jstl进行迭代">Older</a>
   
   
+    <span class="prevnext-item older">Newer</span>
   
 </div>
-<h3 class="post-title">
-<div class="pagination" style="margin: 0.5rem;">
-    <a class="pagination-item older" href="http://alicture.com/blog"><i class="fa fa-edit"> Blog</i></a>
-    <a class="pagination-item newer" href="http://alicture.com/tags"><i class="fa fa-tags"> Tags</i></a>
-</div>
-</h3>
+
+<div class="page-break"></div>
+
+<div id="disqus_thread"></div><!-- /#disqus_thread -->
 
                     <div class="custom-footer" style="display: block;">
             <div class="footer-social-icons">
@@ -407,6 +404,19 @@ Credits: http://alicture.com/disclosure
 
 
 <!-- disqus comments -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'alicture'; 
+    var disqus_identifier = 'http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 </body>

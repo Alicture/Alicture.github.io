@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/</loc>
+      
+        <lastmod>2016-04-26T00:00:00+08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://alicture.com/blog/2016/04/15/%E4%BD%BF%E7%94%A8EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cjstl%E8%BF%9B%E8%A1%8C%E8%BF%AD%E4%BB%A3/</loc>
       
         <lastmod>2016-04-15T00:00:00+08:00</lastmod>
@@ -68,7 +83,7 @@
     <url>
       <loc>http://alicture.com/archive/</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -115,7 +130,7 @@
     <url>
       <loc>http://alicture.com/disclosure/</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -132,7 +147,7 @@
     <url>
       <loc>http://alicture.com/feed.xml</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -147,7 +162,7 @@
     <url>
       <loc>http://alicture.com/humans.txt</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -162,7 +177,7 @@
     <url>
       <loc>http://alicture.com/blog/</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -177,7 +192,7 @@
     <url>
       <loc>http://alicture.com/</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -192,7 +207,7 @@
     <url>
       <loc>http://alicture.com/links.jsonp</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -226,7 +241,7 @@
     <url>
       <loc>http://alicture.com/readme/</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -241,7 +256,7 @@
     <url>
       <loc>http://alicture.com/resume/</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -256,7 +271,7 @@
     <url>
       <loc>http://alicture.com/rfeed.xml</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -273,7 +288,7 @@
     <url>
       <loc>http://alicture.com/sitemap.xml</loc>
       
-        <lastmod>2016-04-16T18:00:24+08:00</lastmod>
+        <lastmod>2016-04-26T23:35:57+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>

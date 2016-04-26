@@ -7,6 +7,6 @@ Twitter: https://twitter.com/
 Design Contributors: http://alicture.com/disclosure/
 
 /* SITE */
-Last Updated: 2016/04/16
+Last Updated: 2016/04/26
 Standards: HTML5, CSS3
 Software: Sublime Text, Chrome, Jekyll, Git, Sass
