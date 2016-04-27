@@ -30,7 +30,7 @@ profile={
     contact: {
         weibo: "groundwalker",
         github: "https://github.com/alicture",
-        email: "lzp123518@gmail"
+        email: "lzp123518@gmail.com"
     }
 }
 {% endhighlight %}
