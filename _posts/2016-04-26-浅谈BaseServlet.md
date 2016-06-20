@@ -17,7 +17,7 @@ BaseServlet是一个很实用的工具。
 原理：使用了java的反射机制，使其可以调用一个servlet中包含的不同方法。
 
 下面给出一个很棒的BaseServlet。
-
+<!--more-->
 
 ``` java 
 
