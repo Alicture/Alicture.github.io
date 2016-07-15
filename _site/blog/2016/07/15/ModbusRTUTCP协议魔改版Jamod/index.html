@@ -17,35 +17,34 @@ Credits: http://localhost:4000/disclosure
 
 <title>
   
-    在MacOS上安装W3M &middot; foo
+    魔改版Jamod &middot; foo
   
 </title>
 
 <!-- Search Engine Optimization -->
 <meta name="description" content="
-  准备工作： 安装HomeBrew
+  首先，介绍一下jamod。它是一个用java编写的Modbus协议工具包。可以用它来实现使用java操作串口/端口的Modbus协议设备进行指定的数据操作。这是它的官方网址上面有详细的介绍。
 
 
 
-  按下Command+Space 然后输入Terminal，按下enter/return。
-  
-    在终端中输入：
+当RTU包封装进TCP包中并传输时，通常说交互的设备是采用Modbus RTU over TCP方式的，这就比较特别了。在jamod1.2(最新版本)中并没有得到支持。所以需要对jamod1.2源码进行魔改二次开发，扩展其功能，使得其完美支持Modbus RTU over TCP。
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &lt; /dev/null 2&gt; /dev/null
-
-按下回车键，等待指令完成。
-
-  
-  输入：
-
-brew install w3m
-
-完成了！恭喜你可以使用w3m浏览器了！
+使得jamod具备支持RTU over TCP的功能，需要完成如下几件事：
 
 
+  io包下写：ModbusRTUTCPTransport(底层)
+  net包下：RTUTCPMasterConnection（实现Master的连接建立与断开以及各参数设定）
+  ModbusRTUTCPTransaction（实现事务类）
+  facade包下：ModbusRTUTCPMaster。
 
+
+经过测试，Badass-jamod1.2具备读取多个寄存器，写入寄存器，读取多个线圈等所有对ModbusRTU over TCP协议设备的数据交互功能。
+
+注意：读取多个寄存器时，一次最多只能读取32个寄存器。这点与ModbusRTU相同
+
+传送门：Badass-jammod1.2
 ">
-<meta name="keywords" content="Mac OS">
+<meta name="keywords" content="Modbus, java">
 
 
 
@@ -57,29 +56,28 @@ brew install w3m
 <meta name="twitter:image" content="http://localhost:4000/images/sitelogo.png">
 
 
-<meta name="twitter:title" content="在MacOS上安装W3M">
+<meta name="twitter:title" content="魔改版Jamod">
 <meta name="twitter:description" content="
-  准备工作： 安装HomeBrew
+  首先，介绍一下jamod。它是一个用java编写的Modbus协议工具包。可以用它来实现使用java操作串口/端口的Modbus协议设备进行指定的数据操作。这是它的官方网址上面有详细的介绍。
 
 
 
-  按下Command+Space 然后输入Terminal，按下enter/return。
-  
-    在终端中输入：
+当RTU包封装进TCP包中并传输时，通常说交互的设备是采用Modbus RTU over TCP方式的，这就比较特别了。在jamod1.2(最新版本)中并没有得到支持。所以需要对jamod1.2源码进行魔改二次开发，扩展其功能，使得其完美支持Modbus RTU over TCP。
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &lt; /dev/null 2&gt; /dev/null
-
-按下回车键，等待指令完成。
-
-  
-  输入：
-
-brew install w3m
-
-完成了！恭喜你可以使用w3m浏览器了！
+使得jamod具备支持RTU over TCP的功能，需要完成如下几件事：
 
 
+  io包下写：ModbusRTUTCPTransport(底层)
+  net包下：RTUTCPMasterConnection（实现Master的连接建立与断开以及各参数设定）
+  ModbusRTUTCPTransaction（实现事务类）
+  facade包下：ModbusRTUTCPMaster。
 
+
+经过测试，Badass-jamod1.2具备读取多个寄存器，写入寄存器，读取多个线圈等所有对ModbusRTU over TCP协议设备的数据交互功能。
+
+注意：读取多个寄存器时，一次最多只能读取32个寄存器。这点与ModbusRTU相同
+
+传送门：Badass-jammod1.2
 ">
 <meta name="twitter:creator" content="@abcd">
 <!-- End Twitter Cards -->
@@ -87,31 +85,30 @@ brew install w3m
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在MacOS上安装W3M">
+<meta property="og:title" content="魔改版Jamod">
 <meta property="og:description" content="
-  准备工作： 安装HomeBrew
+  首先，介绍一下jamod。它是一个用java编写的Modbus协议工具包。可以用它来实现使用java操作串口/端口的Modbus协议设备进行指定的数据操作。这是它的官方网址上面有详细的介绍。
 
 
 
-  按下Command+Space 然后输入Terminal，按下enter/return。
-  
-    在终端中输入：
+当RTU包封装进TCP包中并传输时，通常说交互的设备是采用Modbus RTU over TCP方式的，这就比较特别了。在jamod1.2(最新版本)中并没有得到支持。所以需要对jamod1.2源码进行魔改二次开发，扩展其功能，使得其完美支持Modbus RTU over TCP。
 
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &lt; /dev/null 2&gt; /dev/null
-
-按下回车键，等待指令完成。
-
-  
-  输入：
-
-brew install w3m
-
-完成了！恭喜你可以使用w3m浏览器了！
+使得jamod具备支持RTU over TCP的功能，需要完成如下几件事：
 
 
+  io包下写：ModbusRTUTCPTransport(底层)
+  net包下：RTUTCPMasterConnection（实现Master的连接建立与断开以及各参数设定）
+  ModbusRTUTCPTransaction（实现事务类）
+  facade包下：ModbusRTUTCPMaster。
 
+
+经过测试，Badass-jamod1.2具备读取多个寄存器，写入寄存器，读取多个线圈等所有对ModbusRTU over TCP协议设备的数据交互功能。
+
+注意：读取多个寄存器时，一次最多只能读取32个寄存器。这点与ModbusRTU相同
+
+传送门：Badass-jammod1.2
 ">
-<meta property="og:url" content="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/">
+<meta property="og:url" content="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/">
 <meta property="og:site_name" content="foo">
 
 <meta property="og:image" content="http://localhost:4000/images/sitelogo.png">
@@ -155,7 +152,7 @@ brew install w3m
 <link rel="icon" type="image/png" sizes="192x192"  href="http://localhost:4000/images/icons/android-icon-192x192.png">
 
 
-<link rel="canonical" href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/">
+<link rel="canonical" href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/">
 <link rel="author" href="https://plus.google.com/+foo?rel=author">
 
 <!-- RSS -->
@@ -257,53 +254,52 @@ Search box will show up here if Google Custom Search key is set in <code>_config
 
       <div class="container content">
         <div class="post">
-  <h1 itemprop="name" class="post-title">在MacOS上安装W3M</h1>
-  <span class="post-date" itemprop="datePublished" content="2016-06-25"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/" itemprop="url" title="Permanent link to this post">25 Jun 2016</a> </i></span>
+  <h1 itemprop="name" class="post-title">魔改版Jamod</h1>
+  <span class="post-date" itemprop="datePublished" content="2016-07-15"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/" itemprop="url" title="Permanent link to this post">15 Jul 2016</a> </i></span>
   
-  <span class="post-tags" itemprop="keywords" content="Mac OS"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#Mac+OS" title="Pages tagged Mac OS" rel="tag">Mac OS</a></span>
+  <span class="post-tags" itemprop="keywords" content="Modbus and java"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#Modbus" title="Pages tagged Modbus" rel="tag">Modbus</a> &bull;  <a href="http://localhost:4000/tags/#java" title="Pages tagged java" rel="tag">java</a></span>
     
-      <span class="social-icons"><a href="https://twitter.com/share?text=在MacOS上安装W3M&amp;url=http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/&amp;via=abcd"  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
-<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
-<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
-<a href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
+      <span class="social-icons"><a href="https://twitter.com/share?text=魔改版Jamod&amp;url=http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/&amp;via=abcd"  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
 
 <a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
 </span>
 
     
   <blockquote>
-  <p>准备工作： 安装<a href="http://brew.sh">HomeBrew</a></p>
+  <p>首先，介绍一下jamod。它是一个用java编写的Modbus协议工具包。可以用它来实现使用java操作串口/端口的Modbus协议设备进行指定的数据操作。<a href="http://jamod.sourceforge.net">这是它的官方网址</a>上面有详细的介绍。
+<!--more--></p>
 </blockquote>
 
+<p>当RTU包封装进TCP包中并传输时，通常说交互的设备是采用Modbus RTU over TCP方式的，这就比较特别了。在jamod1.2(最新版本)中并没有得到支持。所以需要对jamod1.2源码进行<del>魔改</del>二次开发，扩展其功能，使得其完美支持Modbus RTU over TCP。</p>
+
+<p>使得jamod具备支持RTU over TCP的功能，需要完成如下几件事：</p>
+
 <ol>
-  <li>按下Command+Space 然后输入Terminal，按下enter/return。</li>
-  <li>
-    <p>在终端中输入：
-<code class="highlighter-rouge">
-ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &lt; /dev/null 2&gt; /dev/null
-</code>
-按下回车键，等待指令完成。
-<!--more--></p>
-  </li>
-  <li>输入：
-<code class="highlighter-rouge">
-brew install w3m
-</code>
-完成了！恭喜你可以使用w3m浏览器了！</li>
+  <li>io包下写：ModbusRTUTCPTransport(底层)</li>
+  <li>net包下：RTUTCPMasterConnection（实现Master的连接建立与断开以及各参数设定）</li>
+  <li>ModbusRTUTCPTransaction（实现事务类）</li>
+  <li>facade包下：ModbusRTUTCPMaster。</li>
 </ol>
 
-<p><img src="/images/w3m.png" alt="alt text" title="Title" /></p>
+<p>经过测试，Badass-jamod1.2具备读取多个寄存器，写入寄存器，读取多个线圈等所有对ModbusRTU over TCP协议设备的数据交互功能。</p>
+
+<p><strong>注意：读取多个寄存器时，一次最多只能读取32个寄存器。这点与ModbusRTU相同</strong></p>
+
+<p>传送门：<a href="https://github.com/Alicture/Badass-jamod1.2" title="play with modbus like a boss!">Badass-jammod1.2</a></p>
 
   <hr>
   
-  <span class="post-date metafoot" itemprop="datePublished" content="2016-06-25"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/" itemprop="url" title="Permanent link to this post">25 Jun 2016</a> </i></span>
+  <span class="post-date metafoot" itemprop="datePublished" content="2016-07-15"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/" itemprop="url" title="Permanent link to this post">15 Jul 2016</a> </i></span>
   
-  <span class="post-tags" itemprop="keywords" content="Mac OS"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#Mac+OS" title="Pages tagged Mac OS" rel="tag">Mac OS</a></span>
+  <span class="post-tags" itemprop="keywords" content="Modbus and java"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#Modbus" title="Pages tagged Modbus" rel="tag">Modbus</a> &bull;  <a href="http://localhost:4000/tags/#java" title="Pages tagged java" rel="tag">java</a></span>
     
-      <span class="social-icons"><a href="https://twitter.com/share?text=在MacOS上安装W3M&amp;url=http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/&amp;via=abcd"  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
-<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
-<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
-<a href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
+      <span class="social-icons"><a href="https://twitter.com/share?text=魔改版Jamod&amp;url=http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/&amp;via=abcd"  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
 
 <a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
 </span>
@@ -322,8 +318,8 @@ brew install w3m
   </thead>
   <tbody>
     <tr>
-      <td><i class="fa fa-anchor"> http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/</i><br /><i class="fa fa-calendar"> 25-Jun-16</i><br /><i class="fa fa-creative-commons"> BY-NC-SA 4.0 http://localhost:4000/disclosure</i></td>
-      <td><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/&choe=UTF-8" alt="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/" /></td>
+      <td><i class="fa fa-anchor"> http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/</i><br /><i class="fa fa-calendar"> 15-Jul-16</i><br /><i class="fa fa-creative-commons"> BY-NC-SA 4.0 http://localhost:4000/disclosure</i></td>
+      <td><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/&choe=UTF-8" alt="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/" /></td>
     </tr>
   </tbody>
 </table>
@@ -336,21 +332,11 @@ brew install w3m
   <h2>Related Posts</h2>
 <ul>
   
-     
-       
-        
-      
-    
-  
     
   
      
        
         
-      
-    
-  
-     
        
         
       
@@ -359,10 +345,31 @@ brew install w3m
      
        
         
+       
+        
       
     
   
      
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+          <li><a href="http://localhost:4000/blog/2016/04/15/%E4%BD%BF%E7%94%A8EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cjstl%E8%BF%9B%E8%A1%8C%E8%BF%AD%E4%BB%A3/">使用EL表达式和jstl进行迭代</a><br /></li>
+          
+    
+  
+     
+       
+        
        
         
       
@@ -373,10 +380,10 @@ brew install w3m
 
 <div class="prevnext">
   
-    <a class="prevnext-item older" href="http://localhost:4000/blog/2016/06/21/Modbus%E5%B7%A5%E5%85%B7/" title="Modbus工具">Older</a>
+    <a class="prevnext-item older" href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/" title="在MacOS上安装W3M">Older</a>
   
   
-    <a class="prevnext-item older" href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/" title="魔改版Jamod">Newer</a>
+    <span class="prevnext-item older">Newer</span>
   
 </div>
 
@@ -433,7 +440,7 @@ brew install w3m
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
     var disqus_shortname = 'foo'; 
-    var disqus_identifier = 'http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/';
+    var disqus_identifier = 'http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/';
 
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

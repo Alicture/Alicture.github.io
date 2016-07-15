@@ -1,0 +1,15 @@
+<blockquote>
+  <p>首先，介绍一下jamod。它是一个用java编写的Modbus协议工具包。可以用它来实现使用java操作串口/端口的Modbus协议设备进行指定的数据操作。<a href="http://jamod.sourceforge.net">这是它的官方网址</a>上面有详细的介绍。
+<!--more-->
+由于项目上有所需求。需要交互的设备是采用Modbus RTU over TCP方式的，比较特别。在jamod1.2(最新版本)中未得到支持。所以需要对jamod源码进行二次开发。扩展其功能，使得其完美支持Modbus-rtu-tcp。</p>
+</blockquote>
+
+<p>使得jamod具备一个完整的RTUTCP功能，需要完成如下几件事：</p>
+
+<ol>
+  <li>io包下写：ModbusRTUTCPTransport(底层)</li>
+  <li>net包下：RTUTCPMasterConnection（实现Master的连接建立与断开以及各参数设定）</li>
+  <li>ModbusRTUTCPTransaction（事务类）</li>
+  <li>facade包下：ModbusRTUTCPMaster。</li>
+</ol>
+

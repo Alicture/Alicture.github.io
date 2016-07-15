@@ -5,11 +5,42 @@
     <description>Foo&#39;s blog...</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <updated>2016-06-25T19:21:53+08:00</updated>
+    <updated>2016-07-16T00:51:16+08:00</updated>
     <id>http://localhost:4000</id>
     <author>
       <name>Foo Boo</name>
     </author>
+    
+      <item>
+        <title>魔改版Jamod</title>
+        
+          <description>&lt;blockquote&gt;
+  &lt;p&gt;首先，介绍一下jamod。它是一个用java编写的Modbus协议工具包。可以用它来实现使用java操作串口/端口的Modbus协议设备进行指定的数据操作。&lt;a href=&quot;http://jamod.sourceforge.net&quot;&gt;这是它的官方网址&lt;/a&gt;上面有详细的介绍。
+&lt;!--more--&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;当RTU包封装进TCP包中并传输时，通常说交互的设备是采用Modbus RTU over TCP方式的，这就比较特别了。在jamod1.2(最新版本)中并没有得到支持。所以需要对jamod1.2源码进行&lt;del&gt;魔改&lt;/del&gt;二次开发，扩展其功能，使得其完美支持Modbus RTU over TCP。&lt;/p&gt;
+
+&lt;p&gt;使得jamod具备支持RTU over TCP的功能，需要完成如下几件事：&lt;/p&gt;
+
+&lt;ol&gt;
+  &lt;li&gt;io包下写：ModbusRTUTCPTransport(底层)&lt;/li&gt;
+  &lt;li&gt;net包下：RTUTCPMasterConnection（实现Master的连接建立与断开以及各参数设定）&lt;/li&gt;
+  &lt;li&gt;ModbusRTUTCPTransaction（实现事务类）&lt;/li&gt;
+  &lt;li&gt;facade包下：ModbusRTUTCPMaster。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;经过测试，Badass-jamod1.2具备读取多个寄存器，写入寄存器，读取多个线圈等所有对ModbusRTU over TCP协议设备的数据交互功能。&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;注意：读取多个寄存器时，一次最多只能读取32个寄存器。这点与ModbusRTU相同&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;传送门：&lt;a href=&quot;https://github.com/Alicture/Badass-jamod1.2&quot; title=&quot;play with modbus like a boss!&quot;&gt;Badass-jammod1.2&lt;/a&gt;&lt;/p&gt;
+</description>
+        
+        <pubDate>Fri, 15 Jul 2016 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/</guid>
+      </item>
     
       <item>
         <title>在MacOS上安装W3M</title>
@@ -25,7 +56,8 @@
 &lt;code class=&quot;highlighter-rouge&quot;&gt;
 ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)&quot; &amp;lt; /dev/null 2&amp;gt; /dev/null
 &lt;/code&gt;
-按下回车键，等待指令完成。&lt;/p&gt;
+按下回车键，等待指令完成。
+&lt;!--more--&gt;&lt;/p&gt;
   &lt;/li&gt;
   &lt;li&gt;输入：
 &lt;code class=&quot;highlighter-rouge&quot;&gt;
