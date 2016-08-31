@@ -9,9 +9,9 @@ relative_permalinks: false
 title:   Alicture
 #tagline:             'foo's website
 description:  Alicture's blog...
-url: http://alicture.com
+url: http://www.alicture.com
 baseurl: ""
-urlimg: http://alicture.com/images/
+urlimg: http://www.alicture.com/images/
 markdown: kramdown
 paginate: 5
 paginate_path: "/blog/page:num"
