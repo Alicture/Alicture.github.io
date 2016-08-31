@@ -1,12 +1,12 @@
 /* TEAM */
 Primary Contact: Alicture
-Site: http://localhost:4000/about/
-Twitter: https://twitter.com/abcd
+Site: http://alicture.com/about/
+Twitter: https://twitter.com/
 
 /* THANKS */
-Design Contributors: http://localhost:4000/disclosure/
+Design Contributors: http://alicture.com/disclosure/
 
 /* SITE */
-Last Updated: 2016/07/16
+Last Updated: 2016/09/01
 Standards: HTML5, CSS3
 Software: Sublime Text, Chrome, Jekyll, Git, Sass

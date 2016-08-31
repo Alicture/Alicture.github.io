@@ -2,32 +2,32 @@ callback([
 
   {
     "text": "HelloWorld",
-    "href": "http://localhost:4000/blog/2016/04/11/helloworld/"
+    "href": "http://alicture.com/blog/2016/04/11/helloworld/"
   } ,
 
   {
     "text": "使用EL表达式和jstl进行迭代",
-    "href": "http://localhost:4000/blog/2016/04/15/%E4%BD%BF%E7%94%A8EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cjstl%E8%BF%9B%E8%A1%8C%E8%BF%AD%E4%BB%A3/"
+    "href": "http://alicture.com/blog/2016/04/15/%E4%BD%BF%E7%94%A8EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cjstl%E8%BF%9B%E8%A1%8C%E8%BF%AD%E4%BB%A3/"
   } ,
 
   {
     "text": "浅谈BaseServlet",
-    "href": "http://localhost:4000/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/"
+    "href": "http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/"
   } ,
 
   {
     "text": "Modbus工具",
-    "href": "http://localhost:4000/blog/2016/06/21/Modbus%E5%B7%A5%E5%85%B7/"
+    "href": "http://alicture.com/blog/2016/06/21/Modbus%E5%B7%A5%E5%85%B7/"
   } ,
 
   {
     "text": "在MacOS上安装W3M",
-    "href": "http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/"
+    "href": "http://alicture.com/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/"
   } ,
 
   {
     "text": "魔改版Jamod",
-    "href": "http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/"
+    "href": "http://alicture.com/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/"
   } 
 
 ])
