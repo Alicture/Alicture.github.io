@@ -17,7 +17,7 @@ tags:
 ---
 
 | - | :- |
-| <i class="fa fa-envelope"></i> | lzp123518@gmail.com | 
+| <i class="fa fa-envelope"></i> | alicture95@gmail.com | 
 | - | :- |
 | <i class="fa fa-home"></i>  | Shanghai,CN| 
 | - | :- |
