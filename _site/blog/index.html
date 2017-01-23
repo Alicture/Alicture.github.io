@@ -2,8 +2,8 @@
 <html lang="en-us">
 <!--  
 ====================================================
-Homepage: http://alicture.com
-Credits: http://alicture.com/disclosure
+Homepage: http://localhost:4000
+Credits: http://localhost:4000/disclosure
 ====================================================
 -->
 <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
@@ -17,7 +17,7 @@ Credits: http://alicture.com/disclosure
 
 <title>
   
-    Blog @ Alicture.com &middot; Alicture
+    Blog @ Alicture.com &middot; foo
   
 </title>
 
@@ -28,10 +28,16 @@ Credits: http://alicture.com/disclosure
 
 
 
+<!-- Twitter Cards -->
+  
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@abcd">
+<meta name="twitter:image" content="http://localhost:4000/images/sitelogo.png">
+
 
 <meta name="twitter:title" content="Blog @ Alicture.com">
 <meta name="twitter:description" content="Blogging on ....">
-<meta name="twitter:creator" content="@">
+<meta name="twitter:creator" content="@abcd">
 <!-- End Twitter Cards -->
 
 <!-- Open Graph -->
@@ -39,10 +45,10 @@ Credits: http://alicture.com/disclosure
 <meta property="og:type" content="article">
 <meta property="og:title" content="Blog @ Alicture.com">
 <meta property="og:description" content="Blogging on ....">
-<meta property="og:url" content="http://alicture.com/blog/">
-<meta property="og:site_name" content="Alicture">
+<meta property="og:url" content="http://localhost:4000/blog/">
+<meta property="og:site_name" content="foo">
 
-<meta property="og:image" content="http://alicture.com/images/sitelogo.png">
+<meta property="og:image" content="http://localhost:4000/images/sitelogo.png">
 
 <meta property="fb:app_id" content="1003108156422006">
 <meta property="fb:admins" content="817465054">
@@ -66,28 +72,28 @@ Credits: http://alicture.com/disclosure
 
 <!-- Icons -->
 <!-- 16x16 -->
-<link rel="shortcut icon" href="http://alicture.com/favicon.ico">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
 <!-- 32x32 -->
-<link rel="shortcut icon" href="http://alicture.com/favicon.png">
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
 <!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="http://alicture.com/images/icons/apple-touch-icon-precomposed.png">
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/icons/apple-touch-icon-precomposed.png">
 <!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://alicture.com/images/icons/apple-touch-icon-72x72-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/icons/apple-touch-icon-72x72-precomposed.png">
 <!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://alicture.com/images/icons/apple-touch-icon-114x114-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/icons/apple-touch-icon-114x114-precomposed.png">
 <!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://alicture.com/images/icons/apple-touch-icon-144x144-precomposed.png">
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/icons/apple-touch-icon-144x144-precomposed.png">
 <!-- 180x180 (precomposed) for iPhone 6 -->
-<link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://alicture.com/images/icons/apple-touch-icon-180x180.png">
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://localhost:4000/images/icons/apple-touch-icon-180x180.png">
 <!-- 192x192 (precomposed) for Android -->
-<link rel="icon" type="image/png" sizes="192x192"  href="http://alicture.com/images/icons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="http://localhost:4000/images/icons/android-icon-192x192.png">
 
 
-<link rel="canonical" href="http://alicture.com/blog/">
-
+<link rel="canonical" href="http://localhost:4000/blog/">
+<link rel="author" href="https://plus.google.com/+foo?rel=author">
 
 <!-- RSS -->
-<link rel="alternate" type="application/rss+xml" title="RSS" href="http://alicture.com/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/feed.xml">
 
 
 
@@ -103,7 +109,7 @@ Credits: http://alicture.com/disclosure
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
 <!--   <div class="sidebar-item">
-    <p>Alicture's blog...</p>
+    <p>Foo's blog...</p>
   </div> -->
 
   <nav class="sidebar-nav">
@@ -115,49 +121,52 @@ Credits: http://alicture.com/disclosure
 
     
             
-                    <a class="sidebar-nav-item" href="http://alicture.com/"><i class="iconside iconm-home"></i> Home</a>
+                    <a class="sidebar-nav-item" href="http://localhost:4000/"><i class="iconside iconm-home"></i> Home</a>
                 
     
             
-                    <a class="sidebar-nav-item" href="http://alicture.com/about/"><i class="iconside iconm-user"></i> About</a>
+                    <a class="sidebar-nav-item" href="http://localhost:4000/about/"><i class="iconside iconm-user"></i> About</a>
                 
     
             
-                    <a class="sidebar-nav-item active" href="http://alicture.com/blog/"><i class="iconside iconm-quill"></i> Blog</a>
+                    <a class="sidebar-nav-item active" href="http://localhost:4000/blog/"><i class="iconside iconm-quill"></i> Blog</a>
                 
     
             
-                    <a class="sidebar-nav-item" href="http://alicture.com/tags/"><i class="fa fa-tags"></i> Tags</a>
+                    <a class="sidebar-nav-item" href="http://localhost:4000/tags/"><i class="fa fa-tags"></i> Tags</a>
                 
     
             
-                    <a class="sidebar-nav-item" href="http://alicture.com/archive/"><i class="fa fa-archive"></i> Archive</a>
+                    <a class="sidebar-nav-item" href="http://localhost:4000/archive/"><i class="fa fa-archive"></i> Archive</a>
                 
     
             
-                    <a class="sidebar-nav-item" href="http://alicture.com/contact/"><i class="iconside iconm-envelop"></i> Contact</a>
+                    <a class="sidebar-nav-item" href="https://foo.wordpress.com" target="_blank"><i class="iconside iconm-wordpress"></i> Old Blog</a>
                 
     
             
-                    <a class="sidebar-nav-item" href="http://alicture.com/feed.xml"><i class="iconside iconm-feed2"></i> Feed</a>
+                    <a class="sidebar-nav-item" href="http://localhost:4000/contact/"><i class="iconside iconm-envelop"></i> Contact</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="https://twitter.com/abcd" target="_blank"><i class="iconside iconm-twitter"></i> Twitter</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/feed.xml"><i class="iconside iconm-feed2"></i> Feed</a>
                 
          
 
+    
+    <a class="sidebar-nav-item" href="https://github.com/dyndna/lanyon-plus"><em>lanyon-plus project</em></a>
+    <a class="sidebar-nav-item" href="https://github.com/dyndna/lanyon-plus/releases/tag/v1.1.0">Download v1.1.0</a>
     
   </nav>
 
 <hr class="gh">
 
 
-<div id="searchbox2" style="margin:0 auto; display: table;">
-<div class="searchcont2">
-    <!-- span class="searchicon2"><i class="fa fa-search fa-2x"></i></span -->
-    <form role="search" method="get" action="http://alicture.com/cse/">
-        <input id="searchString2" name="searchString2"
-               placeholder=" Search" type="text">
-    </form>
-</div>
-</div>
+Search box will show up here if Google Custom Search key is set in <code>_config.yml</code>
 
 
 </div>
@@ -169,12 +178,12 @@ Credits: http://alicture.com/disclosure
       <div class="masthead">
         <div class="container">
           <h3 class="masthead-title">
-            <a href="/" title="Home">Alicture</a>
+            <a href="/" title="Home">foo</a>
             <!-- <small></small> -->
             <div class="headicons">
-              <small><a href="http://alicture.com/about" rel="me" title="About"><i class="iconm iconm-user"></i></a></small>
-              <small><a href="http://alicture.com/blog" rel="me" title="Blog"><i class="iconm iconm-quill"></i></a></small>
-              <small><a href="http://alicture.com/contact" rel="me" title="Contact"><i class="iconm iconm-envelop"></i></a></small> 
+              <small><a href="http://localhost:4000/about" rel="me" title="About"><i class="iconm iconm-user"></i></a></small>
+              <small><a href="http://localhost:4000/blog" rel="me" title="Blog"><i class="iconm iconm-quill"></i></a></small>
+              <small><a href="http://localhost:4000/contact" rel="me" title="Contact"><i class="iconm iconm-envelop"></i></a></small> 
             </div>           
           </h3>
         </div>
@@ -185,7 +194,48 @@ Credits: http://alicture.com/disclosure
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://alicture.com/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/">
+      <a href="http://localhost:4000/blog/2017/01/23/FTP%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/">
+        Ftp服务器搭建
+      </a>
+    </h1>
+
+  <span class="post-date indexpg" itemprop="datePublished" content="2017-01-23"><i class="fa fa-calendar" title="Date published"> 23 Jan 2017</i> </span>
+
+ ﻿—
+author: Alicture
+comments: true
+layout: post
+publised: true
+title: CentOS6.5 配置FTP服务器
+category: 
+tag: 
+- linux
+description:
+—
+
+<blockquote>
+  安装VSFTPD
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>yum -y install vsftpd
+</code></pre>
+</div>
+
+<blockquote>
+  设置开机启动
+</blockquote>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>chkconfig vsftpd on
+</code></pre>
+</div>
+
+ <a href="http://localhost:4000/blog/2017/01/23/FTP%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA/" title="Read more"><strong>Read more...</strong></a>
+  </div>
+  <hr class="transp">
+  
+  <div class="post">
+    <h1 class="post-title">
+      <a href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/">
         魔改版Jamod
       </a>
     </h1>
@@ -196,13 +246,13 @@ Credits: http://alicture.com/disclosure
   首先，介绍一下jamod。它是一个用java编写的Modbus协议工具包。可以用它来实现使用java操作串口/端口的Modbus协议设备进行指定的数据操作。<a href="http://jamod.sourceforge.net">这是它的官方网址</a>上面有详细的介绍。
 </blockquote>
 
- <a href="http://alicture.com/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/" title="Read more"><strong>Read more...</strong></a>
+ <a href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/" title="Read more"><strong>Read more...</strong></a>
   </div>
   <hr class="transp">
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://alicture.com/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/">
+      <a href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/">
         在MacOS上安装W3M
       </a>
     </h1>
@@ -222,13 +272,13 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 按下回车键，等待指令完成。</li>
 </ol>
 
- <a href="http://alicture.com/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/" title="Read more"><strong>Read more...</strong></a>
+ <a href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/" title="Read more"><strong>Read more...</strong></a>
   </div>
   <hr class="transp">
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://alicture.com/blog/2016/06/21/Modbus%E5%B7%A5%E5%85%B7/">
+      <a href="http://localhost:4000/blog/2016/06/21/Modbus%E5%B7%A5%E5%85%B7/">
         Modbus工具
       </a>
     </h1>
@@ -237,13 +287,13 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
  最近，学校实验室在做一个有关单片机串口通讯的项目，用C#实现。其中有需求，要把不同类型的D寄存器的数据分开储存。
 
- <a href="http://alicture.com/blog/2016/06/21/Modbus%E5%B7%A5%E5%85%B7/" title="Read more"><strong>Read more...</strong></a>
+ <a href="http://localhost:4000/blog/2016/06/21/Modbus%E5%B7%A5%E5%85%B7/" title="Read more"><strong>Read more...</strong></a>
   </div>
   <hr class="transp">
   
   <div class="post">
     <h1 class="post-title">
-      <a href="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/">
+      <a href="http://localhost:4000/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/">
         浅谈BaseServlet
       </a>
     </h1>
@@ -258,26 +308,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 下面给出一个很棒的BaseServlet。
 
- <a href="http://alicture.com/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/" title="Read more"><strong>Read more...</strong></a>
-  </div>
-  <hr class="transp">
-  
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://alicture.com/blog/2016/04/15/%E4%BD%BF%E7%94%A8EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cjstl%E8%BF%9B%E8%A1%8C%E8%BF%AD%E4%BB%A3/">
-        使用EL表达式和jstl进行迭代
-      </a>
-    </h1>
-
-  <span class="post-date indexpg" itemprop="datePublished" content="2016-04-15"><i class="fa fa-calendar" title="Date published"> 15 Apr 2016</i> </span>
-
- <ul>
-  <li>首先导入jstl包,设置前缀</li>
-</ul>
-
-<figure class="highlight"><pre><code class="language-java" data-lang="java">	<span class="o">&lt;%</span><span class="nd">@taglib</span> <span class="n">uri</span><span class="o">=</span><span class="s">"http://java.sun.com/jsp/jstl/core"</span> <span class="n">prefix</span><span class="o">=</span><span class="s">"c"</span><span class="o">%&gt;</span></code></pre></figure>
-
- <a href="http://alicture.com/blog/2016/04/15/%E4%BD%BF%E7%94%A8EL%E8%A1%A8%E8%BE%BE%E5%BC%8F%E5%92%8Cjstl%E8%BF%9B%E8%A1%8C%E8%BF%AD%E4%BB%A3/" title="Read more"><strong>Read more...</strong></a>
+ <a href="http://localhost:4000/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/" title="Read more"><strong>Read more...</strong></a>
   </div>
   
   
@@ -285,7 +316,7 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
 
 <div class="pagination">
   
-    <a class="pagination-item older" href="http://alicture.com/blog/page2">Older</a>
+    <a class="pagination-item older" href="http://localhost:4000/blog/page2">Older</a>
   
   
     <span class="pagination-item newer">Newer</span>
@@ -300,14 +331,14 @@ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/
             <li><a href="https://github.com/alicture" rel="me"  target="_blank"  class="social-icons" title="Code repository"> <i class="fa fa-github-square fa-2x"></i></a></li>
             
               
-            <li><a href="http://alicture.com/contact/" rel="me"  class="social-icons" title="Reach Us"> <i class="fa fa-envelope-square fa-2x"></i></a></li>
+            <li><a href="http://localhost:4000/contact/" rel="me"  class="social-icons" title="Reach Us"> <i class="fa fa-envelope-square fa-2x"></i></a></li>
             
               
-            <li><a href="http://alicture.com/feed.xml" rel="me"  class="social-icons" title="Subscribe to RSS"> <i class="fa fa-rss-square fa-2x"></i></a></li>
+            <li><a href="http://localhost:4000/feed.xml" rel="me"  class="social-icons" title="Subscribe to RSS"> <i class="fa fa-rss-square fa-2x"></i></a></li>
                       
             </ul>
             </div>
-            <h6 class="text-footer"><a rel="license" href="http://alicture.com/disclosure/" title="CC BY-NC-SA 4.0 License, link to site disclosure" class="social-icon"><i class="fa fa-creative-commons"></i></a> <a rel="license" href="http://alicture.com/disclosure/" title="CC BY-NC-SA 4.0 License, link to site disclosure">2015-2016</a>: <a href="http://alicture.com" title="Home">Alicture.com</a> | <a href="http://alicture.com/about/" rel="me">About</a> | <a href="http://webchat.freenode.net?channels=Alicture%27s%20blog&uio=MTE9MTY02b" tittle="chatroom">Chatroom</a></h6>
+            <h6 class="text-footer"><a rel="license" href="http://localhost:4000/disclosure/" title="CC BY-NC-SA 4.0 License, link to site disclosure" class="social-icon"><i class="fa fa-creative-commons"></i></a> <a rel="license" href="http://localhost:4000/disclosure/" title="CC BY-NC-SA 4.0 License, link to site disclosure">2015-2017</a>: <a href="http://localhost:4000" title="Home">Alicture.com</a> | <a href="http://localhost:4000/about/" rel="me">About</a> | <a href="http://webchat.freenode.net?channels=Alicture%27s%20blog&uio=MTE9MTY02b" tittle="chatroom">Chatroom</a></h6>
             </div>
 
       </div>
