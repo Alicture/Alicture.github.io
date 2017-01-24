@@ -17,29 +17,29 @@ Credits: http://localhost:4000/disclosure
 
 <title>
   
-    Blog @ Alicture.com &middot; Alicture
+    CentOS6.5 配置FTP服务器 &middot; Alicture
   
 </title>
 
 <!-- Search Engine Optimization -->
-<meta name="description" content="Blogging on ....">
+<meta name="description" content="CentOS6.5 配置FTP服务器">
+<meta name="keywords" content="linux">
 
 
 
 
 
-
-<meta name="twitter:title" content="Blog @ Alicture.com">
-<meta name="twitter:description" content="Blogging on ....">
+<meta name="twitter:title" content="CentOS6.5 配置FTP服务器">
+<meta name="twitter:description" content="CentOS6.5 配置FTP服务器">
 <meta name="twitter:creator" content="@">
 <!-- End Twitter Cards -->
 
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Blog @ Alicture.com">
-<meta property="og:description" content="Blogging on ....">
-<meta property="og:url" content="http://localhost:4000/blog/">
+<meta property="og:title" content="CentOS6.5 配置FTP服务器">
+<meta property="og:description" content="CentOS6.5 配置FTP服务器">
+<meta property="og:url" content="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 <meta property="og:site_name" content="Alicture">
 
 <meta property="og:image" content="http://www.alicture.com/images/sitelogo.png">
@@ -83,7 +83,7 @@ Credits: http://localhost:4000/disclosure
 <link rel="icon" type="image/png" sizes="192x192"  href="http://localhost:4000/images/icons/android-icon-192x192.png">
 
 
-<link rel="canonical" href="http://localhost:4000/blog/">
+<link rel="canonical" href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">
 
 
 <!-- RSS -->
@@ -123,7 +123,7 @@ Credits: http://localhost:4000/disclosure
                 
     
             
-                    <a class="sidebar-nav-item active" href="http://localhost:4000/blog/"><i class="iconside iconm-quill"></i> Blog</a>
+                    <a class="sidebar-nav-item" href="http://localhost:4000/blog/"><i class="iconside iconm-quill"></i> Blog</a>
                 
     
             
@@ -181,21 +181,25 @@ Credits: http://localhost:4000/disclosure
       </div>
 
       <div class="container content">
-        <div class="posts">
+        <div class="post">
+  <h1 itemprop="name" class="post-title">CentOS6.5 配置FTP服务器</h1>
+  <span class="post-date" itemprop="datePublished" content="2017-01-24"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" title="Permanent link to this post">24 Jan 2017</a> </i></span>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">
-        CentOS6.5 配置FTP服务器
-      </a>
-    </h1>
+  <span class="post-tags" itemprop="keywords" content="linux"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#linux" title="Pages tagged linux" rel="tag">linux</a></span>
+    
+      <span class="social-icons"><a href="https://twitter.com/share?text=CentOS6.5 配置FTP服务器&amp;url=http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/&amp;via="  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
 
-  <span class="post-date indexpg" itemprop="datePublished" content="2017-01-24"><i class="fa fa-calendar" title="Date published"> 24 Jan 2017</i> </span>
+<a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
+</span>
 
- <h2 id="1安装vsftpd">1.安装vsftpd</h2>
+    
+  <h2 id="1安装vsftpd">1.安装vsftpd</h2>
 
 <blockquote>
-  安装VSFTPD
+  <p>安装VSFTPD</p>
 </blockquote>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>yum -y install vsftpd
@@ -203,7 +207,7 @@ Credits: http://localhost:4000/disclosure
 </div>
 
 <blockquote>
-  设置开机启动
+  <p>设置开机启动</p>
 </blockquote>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>chkconfig vsftpd on
@@ -212,17 +216,17 @@ Credits: http://localhost:4000/disclosure
 
 <h2 id="2虚拟用户配置">2.虚拟用户配置</h2>
 
-所谓虚拟用户就是没有使用真实的帐户，只是通过映射到真实帐户和设置权限的目的。虚拟用户不能登录CentOS系统。
+<p>所谓虚拟用户就是没有使用真实的帐户，只是通过映射到真实帐户和设置权限的目的。虚拟用户不能登录CentOS系统。</p>
 
 <blockquote>
-  修改配置文件
+  <p>修改配置文件</p>
 </blockquote>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>vim /etc/vsftpd/vsftpd.conf
 </code></pre>
 </div>
 
-做如下配置：
+<p>做如下配置：</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">anonymous_enable</span><span class="o">=</span>NO //设定不允许匿名访问
 <span class="nv">local_enable</span><span class="o">=</span>YES //设定本地用户可以访问。注：如使用虚拟宿主用户，在该项目设定为NO的情况下所有虚拟用户将无法访问
@@ -232,7 +236,7 @@ Credits: http://localhost:4000/disclosure
 </code></pre>
 </div>
 
-手动添加以下配置，使vsftpd支持虚拟用户
+<p>手动添加以下配置，使vsftpd支持虚拟用户</p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">guest_enable</span><span class="o">=</span>YES //设定启用虚拟用户功能
 <span class="nv">guest_username</span><span class="o">=</span>ftp //指定虚拟用户的宿主用户，CentOS中已经有内置的ftp用户了
@@ -241,43 +245,43 @@ Credits: http://localhost:4000/disclosure
 </div>
 
 <blockquote>
-  进行认证
+  <p>进行认证</p>
 </blockquote>
 
-首先，安装Berkeley DB工具<strong>(必须安装)</strong>
+<p>首先，安装Berkeley DB工具<strong>(必须安装)</strong></p>
 
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code>yum install db4 db4-utils
 </code></pre>
 </div>
 
-然后，创建用户密码文本/etc/vsftpd/vuser_passwd.txt ，注意奇行是用户名，偶行是密码
+<p>然后，创建用户密码文本/etc/vsftpd/vuser_passwd.txt ，注意奇行是用户名，偶行是密码</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>test//用户名，可自行设定
 123456//密码
 </code></pre>
 </div>
 
-接着，生成虚拟用户认证的db文件
+<p>接着，生成虚拟用户认证的db文件</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>db_load -T -t hash -f /etc/vsftpd/vuser_passwd.txt /etc/vsftpd/vuser_passwd.db
 </code></pre>
 </div>
 
-随后，编辑认证文件/etc/pam.d/vsftpd，全部注释掉原来语句，再增加以下两句：
+<p>随后，编辑认证文件/etc/pam.d/vsftpd，全部注释掉原来语句，再增加以下两句：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>auth required pam_userdb.so db=/etc/vsftpd/vuser_passwd
 account required pam_userdb.so db=/etc/vsftpd/vuser_passwd
 </code></pre>
 </div>
 
-最后，创建虚拟用户配置文件
+<p>最后，创建虚拟用户配置文件</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>mkdir /etc/vsftpd/vuser_conf/
 vim /etc/vsftpd/vuser_conf/test  //文件名等于vuser_passwd.txt里面的账户名(第一行设置的用户名)，否则下面设置无效
 </code></pre>
 </div>
 
-配置内容：
+<p>配置内容：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>local_root=/ftp/www  //虚拟用户根目录，可以根据需求填写
 write_enable=YES  //可写
@@ -290,10 +294,10 @@ anon_other_write_enable=YES
 </div>
 
 <blockquote>
-  设置selinux
+  <p>设置selinux</p>
 </blockquote>
 
-如果已经关闭selinux，可以不做设置。
+<p>如果已经关闭selinux，可以不做设置。</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>setsebool -P ftp_home_dir=1   //设置ftp可以使用home目录
 sersebool -P allow_ftpd_full_access=1   //设置ftp用户可以有所有权限
@@ -301,7 +305,7 @@ sersebool -P allow_ftpd_full_access=1   //设置ftp用户可以有所有权限
 </div>
 
 <blockquote>
-  设置FTP根目录权限
+  <p>设置FTP根目录权限</p>
 </blockquote>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>mkdir /ftp/www   //创建目录,若没有/ftp，先创建/ftp
@@ -311,20 +315,20 @@ chmod R 777 /ftp/www
 </div>
 
 <blockquote>
-  设置防火墙
+  <p>设置防火墙</p>
 </blockquote>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>vim /etc/sysconfig/iptables
 </code></pre>
 </div>
 
-在“-A INPUT –m state –state NEW –m tcp –p tcp - -dport 22 –j ACCEPT”，下添加：
+<p>在“-A INPUT –m state –state NEW –m tcp –p tcp - -dport 22 –j ACCEPT”，下添加：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 21 -j ACCEPT
 </code></pre>
 </div>
 
-重启iptabls和vsftpd
+<p>重启iptabls和vsftpd</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>service iptables restart
 service vsftpd restart
@@ -333,15 +337,15 @@ service vsftpd restart
 
 <h2 id="3配置主动模式pasv">3.配置主动模式(PASV)</h2>
 
-vsftpd默认没有开启PASV模式，现在FTP只能通过PORT模式连接，要开启PASV默认需要通过下面的配置
+<p>vsftpd默认没有开启PASV模式，现在FTP只能通过PORT模式连接，要开启PASV默认需要通过下面的配置</p>
 
-打开/etc/vsftpd/vsftpd.conf
+<p>打开/etc/vsftpd/vsftpd.conf</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>vim /etc/vsftpd/vsftpd.conf
 </code></pre>
 </div>
 
-在文件末尾添加：
+<p>在文件末尾添加：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>pasv_enable=YES   //开启PASV模式
 pasv_min_port=40000   //最小端口号
@@ -351,124 +355,126 @@ pasv_promiscuous=YES
 </div>
 
 <blockquote>
-  设置防火墙
+  <p>设置防火墙</p>
 </blockquote>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>vim /etc/sysconfig/iptables
 </code></pre>
 </div>
 
-添加：
+<p>添加：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>-A INPUT -m state --state NEW -m tcp -p tcp --dport 40000:40080 -j ACCEPT
 </code></pre>
 </div>
 
-重启服务：
+<p>重启服务：</p>
 
 <div class="highlighter-rouge"><pre class="highlight"><code>service iptables restart
 service vsftpd restart
 </code></pre>
 </div>
 
-这样就可以使用PASV模式连接ftp服务器了，（使用FileZilla一定要设置PASV模式）
+<p>这样就可以使用PASV模式连接ftp服务器了，（使用FileZilla一定要设置PASV模式）</p>
 
-<strong><em>文中配置文件行末注意不能有空格，否则会引起vsftpd错误</em></strong>
+<p><strong><em>文中配置文件行末注意不能有空格，否则会引起vsftpd错误</em></strong></p>
 
- <a href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="Read more"><strong>Read more...</strong></a>
-  </div>
-  <hr class="transp">
+
+  <hr>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/">
-        魔改版Jamod
-      </a>
-    </h1>
-
-  <span class="post-date indexpg" itemprop="datePublished" content="2016-07-15"><i class="fa fa-calendar" title="Date published"> 15 Jul 2016</i> </span>
-
- <blockquote>
-  首先，介绍一下jamod。它是一个用java编写的Modbus协议工具包。可以用它来实现使用java操作串口/端口的Modbus协议设备进行指定的数据操作。<a href="http://jamod.sourceforge.net">这是它的官方网址</a>上面有详细的介绍。
-</blockquote>
-
- <a href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/" title="Read more"><strong>Read more...</strong></a>
-  </div>
-  <hr class="transp">
+  <span class="post-date metafoot" itemprop="datePublished" content="2017-01-24"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" itemprop="url" title="Permanent link to this post">24 Jan 2017</a> </i></span>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/">
-        在MacOS上安装W3M
-      </a>
-    </h1>
+  <span class="post-tags" itemprop="keywords" content="linux"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#linux" title="Pages tagged linux" rel="tag">linux</a></span>
+    
+      <span class="social-icons"><a href="https://twitter.com/share?text=CentOS6.5 配置FTP服务器&amp;url=http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/&amp;via="  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
 
-  <span class="post-date indexpg" itemprop="datePublished" content="2016-06-25"><i class="fa fa-calendar" title="Date published"> 25 Jun 2016</i> </span>
+<a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
+</span>
 
- <blockquote>
-  准备工作： 安装<a href="http://brew.sh">HomeBrew</a>
-</blockquote>
+    
+</div>
 
-<ol>
-  <li>按下Command+Space 然后输入Terminal，按下enter/return。</li>
-  <li>在终端中输入：
-    <div class="highlighter-rouge"><pre class="highlight"><code>ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)" &lt; /dev/null 2&gt; /dev/null
-</code></pre>
-    </div>
-    按下回车键，等待指令完成。
-  </li>
-</ol>
 
- <a href="http://localhost:4000/blog/2016/06/25/%E5%A6%82%E4%BD%95%E5%9C%A8MacOSX%E4%B8%8A%E5%AE%89%E8%A3%85W3M/" title="Read more"><strong>Read more...</strong></a>
-  </div>
-  <hr class="transp">
+  <div class="printMsg">
+<table>
+  <thead>
+    <tr>
+      <th><i class="fa fa-twitter">@</i></th>
+      <th>QR code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><i class="fa fa-anchor"> http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/</i><br /><i class="fa fa-calendar"> 24-Jan-17</i><br /><i class="fa fa-creative-commons"> BY-NC-SA 4.0 http://localhost:4000/disclosure</i></td>
+      <td><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/&choe=UTF-8" alt="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" /></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<div class="page-break"></div>
+<div class="related">
+  <h2>Related Posts</h2>
+<ul>
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/blog/2016/06/21/Modbus%E5%B7%A5%E5%85%B7/">
-        Modbus工具
-      </a>
-    </h1>
-
-  <span class="post-date indexpg" itemprop="datePublished" content="2016-06-21"><i class="fa fa-calendar" title="Date published"> 21 Jun 2016</i> </span>
-
- 最近，学校实验室在做一个有关单片机串口通讯的项目，用C#实现。其中有需求，要把不同类型的D寄存器的数据分开储存。
-
- <a href="http://localhost:4000/blog/2016/06/21/Modbus%E5%B7%A5%E5%85%B7/" title="Read more"><strong>Read more...</strong></a>
-  </div>
-  <hr class="transp">
+    
   
-  <div class="post">
-    <h1 class="post-title">
-      <a href="http://localhost:4000/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/">
-        浅谈BaseServlet
-      </a>
-    </h1>
-
-  <span class="post-date indexpg" itemprop="datePublished" content="2016-04-26"><i class="fa fa-calendar" title="Date published"> 26 Apr 2016</i> </span>
-
- BaseServlet是一个很实用的工具。
-
-使用方法：创建Servlet时继承BaseServlet这个好爸爸。
-
-原理：使用了java的反射机制，使其可以调用一个servlet中包含的不同方法。
-
-下面给出一个很棒的BaseServlet。
-
- <a href="http://localhost:4000/blog/2016/04/26/%E6%B5%85%E8%B0%88BaseServlet/" title="Read more"><strong>Read more...</strong></a>
-  </div>
+     
+       
+        
+      
+    
   
+     
+       
+        
+      
+    
+  
+     
+       
+        
+      
+    
+  
+     
+       
+        
+      
+    
+  
+     
+       
+        
+      
+    
+  
+     
+       
+        
+      
+    
+  
+</ul>
+</div>
+
+<div class="prevnext">
+  
+    <a class="prevnext-item older" href="http://localhost:4000/blog/2016/07/15/ModbusRTUTCP%E5%8D%8F%E8%AE%AE%E9%AD%94%E6%94%B9%E7%89%88Jamod/" title="魔改版Jamod">Older</a>
+  
+  
+    <span class="prevnext-item older">Newer</span>
   
 </div>
 
-<div class="pagination">
-  
-    <a class="pagination-item older" href="http://localhost:4000/blog/page2">Older</a>
-  
-  
-    <span class="pagination-item newer">Newer</span>
-  
-</div>
+<div class="page-break"></div>
+
+<div id="disqus_thread"></div><!-- /#disqus_thread -->
 
                     <div class="custom-footer" style="display: block;">
             <div class="footer-social-icons">
@@ -516,6 +522,19 @@ service vsftpd restart
 
 
 <!-- disqus comments -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'alicture'; 
+    var disqus_identifier = 'http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 
 
 </body>
