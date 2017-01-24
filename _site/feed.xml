@@ -5,11 +5,330 @@
     <description>Alicture's blog...</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <updated>2017-01-24T11:31:06+08:00</updated>
+    <updated>2017-01-24T23:45:53+08:00</updated>
     <id>http://localhost:4000</id>
     <author>
       <name>alicture</name>
     </author>
+    
+      <item>
+        <title>树莓派折腾-aria2离线下载</title>
+        
+          <description>&lt;p&gt;树莓派是一个理想的学习linux，适合折腾的好「玩具」。&lt;/p&gt;
+
+&lt;p&gt;本篇来介绍下如何在树莓派上部署aria2，以及配置网络前端。为将来实现远程下载做准备。&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;Aria2是一个轻量级命令行下载工具，支持HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink下载，但是不支持ed2k，支持JSON-RPC和XML-RPC调用，可以远程控制。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;总而言之是个好用高级的下载器。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;1.安装aria2&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install aria2 –y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2.创建aria2 配置文件 &lt;strong&gt;&lt;em&gt;/home/pi/.aria2/aria2.conf&lt;/em&gt;&lt;/strong&gt;和&lt;strong&gt;&lt;em&gt;/home/pi/.aria2/aria2.session&lt;/em&gt;&lt;/strong&gt;（我直接用pi账户启动aria2）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;mkdir /home/pi/.aria2
+touch /home/pi/.aria2/aria2.session
+vim /home/pi/.aria2/aria2.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;配置文件如下：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;# 基本配置&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 下载目录&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;dir&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/pi/nas-data/Inbox
+&lt;span class=&quot;c&quot;&gt;# 下载从这个文件中找到的urls, 需自己建立这个文件&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# touch /home/pi/.aria2/aria2.session&lt;/span&gt;
+input-file&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/pi/.aria2/aria2.session
+&lt;span class=&quot;c&quot;&gt;# 最大同时下载任务数，默认 5&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#max-concurrent-downloads=5&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 断点续传，只适用于 HTTP(S)/FTP&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;continue&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# HTTP/FTP 配置&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 关闭连接如果下载速度等于或低于这个值，默认 0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#lowest-speed-limit=0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 对于每个下载在同一个服务器上的连接数，默认 1&lt;/span&gt;
+max-connection-per-server&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;5
+&lt;span class=&quot;c&quot;&gt;# 每个文件最小分片大小，例如文件 20M，设置 size 为 10M, 则用2个连接下载，默认 20M&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#min-split-size=10M&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 下载一个文件的连接数，默认 5&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#split=5&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# BT 特殊配置&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 启用本地节点查找，默认 false&lt;/span&gt;
+bt-enable-lpd&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 指定最大文件数对于每个 bt 下载，默认 100&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#bt-max-open-files=100&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 单种子最大连接数，默认 55&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#bt-max-peers=55&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 设置最低的加密级别，可选全连接加密 arc4，默认是头加密 plain&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#bt-min-crypto-level=plain&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 总是使用 obfuscation handshake，防迅雷必备，默认 false&lt;/span&gt;
+bt-require-crypto&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 如果下载的是种子文件则自动解析并下载，默认 true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#follow-torrent=true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 为 BT 下载设置 TCP 端口号，确保开放这些端口，默认 6881-6999&lt;/span&gt;
+listen-port&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;65298
+&lt;span class=&quot;c&quot;&gt;#Set UDP listening port used by DHT(IPv4, IPv6) and UDP tracker&lt;/span&gt;
+dht-listen-port&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;65298
+&lt;span class=&quot;c&quot;&gt;# 整体上传速度限制，0 表示不限制，默认 0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#max-overall-upload-limit=0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 每个下载上传速度限制，默认 0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#max-upload-limit=0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 种子分享率大于1, 则停止做种，默认 1.0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#seed-ratio=1&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 做种时间大于2小时，则停止做种&lt;/span&gt;
+seed-time&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;120
+
+&lt;span class=&quot;c&quot;&gt;# RPC 配置&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 开启 JSON-RPC/XML-RPC 服务，默认 false&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;enable&lt;/span&gt;-rpc&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 允许所有来源，web 界面跨域权限需要，默认 false&lt;/span&gt;
+rpc-allow-origin-all&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 允许外部访问，默认 false&lt;/span&gt;
+rpc-listen-all&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# rpc 端口，默认 6800&lt;/span&gt;
+rpc-listen-port&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;6800
+&lt;span class=&quot;c&quot;&gt;# 设置最大的 JSON-RPC/XML-RPC 请求大小，默认 2M&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#rpc-max-request-size=2M&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# rpc 密码，可不设置&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#rpc-passwd=raspberry&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# rpc 用户名，可不设置&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#rpc-user=aria2pi&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# 高级配置&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# This is useful if you have to use broken DNS and&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# want to avoid terribly slow AAAA record lookup.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 默认 false&lt;/span&gt;
+disable-ipv6&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 指定文件分配方法，预分配能有效降低文件碎片，提高磁盘性能，缺点是预分配时间稍长&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 如果使用新的文件系统，例如 ext4 (with extents support), btrfs, xfs or NTFS(MinGW build only), falloc 是最好的选择&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 如果设置为 none，那么不预先分配文件空间，默认 prealloc&lt;/span&gt;
+file-allocation&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;falloc
+&lt;span class=&quot;c&quot;&gt;# 整体下载速度限制，默认 0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#max-overall-download-limit=0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 每个下载下载速度限制，默认 0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;#max-download-limit=0&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 保存错误或者未完成的下载到这个文件&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# 和基本配置中的 input-file 一起使用，那么重启后仍可继续下载&lt;/span&gt;
+save-session&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/pi/.aria2/aria2.session
+&lt;span class=&quot;c&quot;&gt;# 每5分钟自动保存错误或未完成的下载，如果为 0, 只有 aria2 正常退出才回保存，默认 0&lt;/span&gt;
+save-session-interval&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;300
+
+&lt;span class=&quot;c&quot;&gt;# 若要用于 PT 下载，需另外的配置，这里没写&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;3.为RPC加入验证&lt;/p&gt;
+
+&lt;p&gt;使用token验证：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;# token验证
+rpc-secret=secret
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;此处secret为你的验证码&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;在YAAW中使用 &lt;a href=&quot;http://token:secret@hostname:port/jsonrpc&quot;&gt;http://token:secret@hostname:port/jsonrpc&lt;/a&gt; 的地址格式设置secret.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;或者使用用户名&amp;amp;密码（1.15.2以上，1.18.6以下版本）&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;#用户名
+rpc-user=username
+#密码
+rpc-passwd=passwd
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;在YAAW中使用 &lt;a href=&quot;http://username:passwd@hostname:port/jsonrpc&quot;&gt;http://username:passwd@hostname:port/jsonrpc&lt;/a&gt; 的地址格式设置密码.&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;进行测试：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;aria2c --conf-path=/home/pi/.aria2/aria2.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;没有提示任何错误信息，那就按Ctrl+C停止。&lt;/p&gt;
+
+&lt;p&gt;4.为 aria2 添加自启动服务&lt;/p&gt;
+
+&lt;p&gt;1) 新建 sudo vim /etc/init.d/aria2c 文件，输入以下内容&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;c&quot;&gt;#! /bin/sh&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# /etc/init.d/aria2c&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;### BEGIN INIT INFO&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Provides: aria2c&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Required-Start:    $network $local_fs $remote_fs&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Required-Stop:     $network $local_fs $remote_fs&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Default-Start:     2 3 4 5&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Default-Stop:      0 1 6&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Short-Description: aria2c RPC init script.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;# Description: Starts and stops aria2 RPC services.&lt;/span&gt;
+&lt;span class=&quot;c&quot;&gt;### END INIT INFO&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;#VAR&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;RUN&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;/usr/bin/aria2c&quot;&lt;/span&gt;
+&lt;span class=&quot;nv&quot;&gt;ARIA_PID&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;$(&lt;/span&gt;ps ux | awk &lt;span class=&quot;s1&quot;&gt;'/aria2c --daemon=true --enable-rpc/ &amp;amp;&amp;amp; !/awk/ {print $2}'&lt;/span&gt;&lt;span class=&quot;k&quot;&gt;)&lt;/span&gt;
+
+&lt;span class=&quot;c&quot;&gt;# Carry out specific functions when asked to by the system&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;case&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$1&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;in
+  &lt;/span&gt;start&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Starting script aria2c &quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; -z &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ARIA_PID&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then&lt;/span&gt;
+      &lt;span class=&quot;nv&quot;&gt;$RUN&lt;/span&gt; --daemon&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; --enable-rpc&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; -D --conf-path&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/pi/.aria2/aria2.conf
+      &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Started&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else
+      &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;aria2c already started&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+  stop&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Stopping script aria2c&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; ! -z &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ARIA_PID&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then
+      &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ARIA_PID&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fi
+    &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;OK&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+  restart&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Restarting script aria2c&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; ! -z &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ARIA_PID&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then
+      &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;kill&lt;/span&gt; &lt;span class=&quot;nv&quot;&gt;$ARIA_PID&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fi
+    &lt;/span&gt;sleep 3   &lt;span class=&quot;c&quot;&gt;# TODO:Maybe need to be adjust&lt;/span&gt;
+    &lt;span class=&quot;nv&quot;&gt;$RUN&lt;/span&gt; --daemon&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; --enable-rpc&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;true&lt;/span&gt; -D --conf-path&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;/home/pi/.aria2/aria2.conf
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;OK&quot;&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+  status&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;if&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;[&lt;/span&gt; ! -z &lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ARIA_PID&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;]&lt;/span&gt;; &lt;span class=&quot;k&quot;&gt;then
+      &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;The aria2c is running with PID = &quot;&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;$ARIA_PID&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;else
+      &lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;No process found for aria2c RPC&quot;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;fi&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+  &lt;span class=&quot;k&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;echo&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Usage: /etc/init.d/aria2c {start|stop|restart|status}&quot;&lt;/span&gt;
+    &lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;1
+    &lt;span class=&quot;p&quot;&gt;;;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;esac&lt;/span&gt;
+&lt;span class=&quot;nb&quot;&gt;exit &lt;/span&gt;0
+
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2) 添加可执行权限&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo chmod +x /etc/init.d/aria2c
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;3) 然后更新rc，添加自启动服务&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo update-rc.d aria2c defaults
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;4) 最后重启aria2c服务&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service aria2c restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;5.安装web 前端yaaw&lt;/p&gt;
+
+&lt;p&gt;1) 首先需要安装需要安装 nginx&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo apt-get install nginx –y
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;2) 接下来我们来配置nginx&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vim /etc/nginx/nginx.conf
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;做如下配置：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;user www-data; &lt;span class=&quot;c&quot;&gt;#默认以www-data运行工作进程&lt;/span&gt;
+worker_processes 1; &lt;span class=&quot;c&quot;&gt;#单工作进程足够了，就我自己访问&lt;/span&gt;
+worker_connections 256; &lt;span class=&quot;c&quot;&gt;#一般支持100在线连接就达到raspberry pi的极限了&lt;/span&gt;
+gzip on;  &lt;span class=&quot;c&quot;&gt;#gzip开启取消前面的#让默认设置生效即可，可以加快网页访问速度&lt;/span&gt;
+gzip_disable &lt;span class=&quot;s2&quot;&gt;&quot;msie6&quot;&lt;/span&gt;;
+gzip_vary on;
+gzip_proxied any;
+gzip_comp_level 6;
+gzip_buffers 16 8k;
+gzip_http_version 1.1;
+gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;3) 配置站点属性&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vim /etc/nginx/sites-availiable/default
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;配置如下内容：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;server {
+listen 81; # 访问端口号
+#listen [::]:80 default_server; # 一定要注释掉，ipv6
+server_name pi.com;
+root /var/www/html; #站点存储位置
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;4) 测试配置文件&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo nginx -t
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;没有问题则会显示：&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf &lt;span class=&quot;nb&quot;&gt;test &lt;/span&gt;is successful
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;5) 创建目录，然后设置权限&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo mkdir /var/www &lt;span class=&quot;o&quot;&gt;&amp;amp;&amp;amp;&lt;/span&gt; sudo mkdir /var/www/html
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 0755 /var/www/html
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;6) 下载yaaw&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo git clone https://github.com/binux/yaaw.git /var/www/html/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;7)重启nginx&lt;/p&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo service nginx restart
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;到这一步了，现在我们通过&lt;a href=&quot;http://192.168.1.118:81/webui-aria2/&quot;&gt;http://192.168.1.118:81/yaww/&lt;/a&gt; 来访问（把ip修改为树莓派的IP地址）&lt;/p&gt;
+</description>
+        
+        <pubDate>Tue, 24 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/</guid>
+      </item>
     
       <item>
         <title>CentOS6.5 配置FTP服务器</title>

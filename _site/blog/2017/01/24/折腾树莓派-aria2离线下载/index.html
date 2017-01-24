@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!--  
+====================================================
+Homepage: http://localhost:4000
+Credits: http://localhost:4000/disclosure
+====================================================
+-->
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<!-- link href="http://gmpg.org/xfn/11" rel="profile" -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<!-- Enable responsiveness on mobile devices-->
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<title>
+  
+    树莓派折腾-aria2离线下载 &middot; Alicture
+  
+</title>
+
+<!-- Search Engine Optimization -->
+<meta name="description" content="树莓派折腾-aria2离线下载">
+<meta name="keywords" content="RaspberryPi, Linux">
+
+
+
+
+
+<meta name="twitter:title" content="树莓派折腾-aria2离线下载">
+<meta name="twitter:description" content="树莓派折腾-aria2离线下载">
+<meta name="twitter:creator" content="@">
+<!-- End Twitter Cards -->
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派折腾-aria2离线下载">
+<meta property="og:description" content="树莓派折腾-aria2离线下载">
+<meta property="og:url" content="http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/">
+<meta property="og:site_name" content="Alicture">
+
+<meta property="og:image" content="http://www.alicture.com/images/sitelogo.png">
+
+<meta property="fb:app_id" content="1003108156422006">
+<meta property="fb:admins" content="817465054">
+
+<!-- Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400|Tangerine|Inconsolata">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/public/css/iconmoon.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/public/css/style.min.css">
+
+<!-- Add-on CSS to override system-wide defaults -->
+<link rel="stylesheet" href="/public/css/addon.css">
+
+<!-- CSS override per page -->
+
+
+<!-- Java scripts -->
+<!-- <script src="/public/js/jquery.min.js"></script> -->
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/icons/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/icons/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/icons/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/icons/apple-touch-icon-144x144-precomposed.png">
+<!-- 180x180 (precomposed) for iPhone 6 -->
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://localhost:4000/images/icons/apple-touch-icon-180x180.png">
+<!-- 192x192 (precomposed) for Android -->
+<link rel="icon" type="image/png" sizes="192x192"  href="http://localhost:4000/images/icons/android-icon-192x192.png">
+
+
+<link rel="canonical" href="http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/">
+
+
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/feed.xml">
+
+
+
+</head>
+
+
+<body>
+
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+<!--   <div class="sidebar-item">
+    <p>Alicture's blog...</p>
+  </div> -->
+
+  <nav class="sidebar-nav">
+    <!-- a class="sidebar-nav-item" href="/">Home</a-->
+
+    
+
+    
+
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/"><i class="iconside iconm-home"></i> Home</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/about/"><i class="iconside iconm-user"></i> About</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/blog/"><i class="iconside iconm-quill"></i> Blog</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/tags/"><i class="fa fa-tags"></i> Tags</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/archive/"><i class="fa fa-archive"></i> Archive</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/contact/"><i class="iconside iconm-envelop"></i> Contact</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/feed.xml"><i class="iconside iconm-feed2"></i> Feed</a>
+                
+         
+
+    
+  </nav>
+
+<hr class="gh">
+
+
+<div id="searchbox2" style="margin:0 auto; display: table;">
+<div class="searchcont2">
+    <!-- span class="searchicon2"><i class="fa fa-search fa-2x"></i></span -->
+    <form role="search" method="get" action="http://localhost:4000/cse/">
+        <input id="searchString2" name="searchString2"
+               placeholder=" Search" type="text">
+    </form>
+</div>
+</div>
+
+
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Alicture</a>
+            <!-- <small></small> -->
+            <div class="headicons">
+              <small><a href="http://localhost:4000/about" rel="me" title="About"><i class="iconm iconm-user"></i></a></small>
+              <small><a href="http://localhost:4000/blog" rel="me" title="Blog"><i class="iconm iconm-quill"></i></a></small>
+              <small><a href="http://localhost:4000/contact" rel="me" title="Contact"><i class="iconm iconm-envelop"></i></a></small> 
+            </div>           
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 itemprop="name" class="post-title">树莓派折腾-aria2离线下载</h1>
+  <span class="post-date" itemprop="datePublished" content="2017-01-24"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" itemprop="url" title="Permanent link to this post">24 Jan 2017</a> </i></span>
+  
+  <span class="post-tags" itemprop="keywords" content="RaspberryPi and Linux"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#RaspberryPi" title="Pages tagged RaspberryPi" rel="tag">RaspberryPi</a> &bull;  <a href="http://localhost:4000/tags/#Linux" title="Pages tagged Linux" rel="tag">Linux</a></span>
+    
+      <span class="social-icons"><a href="https://twitter.com/share?text=树莓派折腾-aria2离线下载&amp;url=http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/&amp;via="  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
+
+<a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
+</span>
+
+    
+  <p>树莓派是一个理想的学习linux，适合折腾的好「玩具」。</p>
+
+<p>本篇来介绍下如何在树莓派上部署aria2，以及配置网络前端。为将来实现远程下载做准备。</p>
+
+<blockquote>
+  <p>Aria2是一个轻量级命令行下载工具，支持HTTP/HTTPS, FTP, SFTP, BitTorrent and Metalink下载，但是不支持ed2k，支持JSON-RPC和XML-RPC调用，可以远程控制。</p>
+</blockquote>
+
+<p>总而言之是个好用高级的下载器。</p>
+
+<!--more-->
+
+<p>1.安装aria2</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo apt-get install aria2 –y
+</code></pre>
+</div>
+
+<p>2.创建aria2 配置文件 <strong><em>/home/pi/.aria2/aria2.conf</em></strong>和<strong><em>/home/pi/.aria2/aria2.session</em></strong>（我直接用pi账户启动aria2）</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>mkdir /home/pi/.aria2
+touch /home/pi/.aria2/aria2.session
+vim /home/pi/.aria2/aria2.conf
+</code></pre>
+</div>
+
+<p>配置文件如下：</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c"># 基本配置</span>
+<span class="c"># 下载目录</span>
+<span class="nv">dir</span><span class="o">=</span>/home/pi/nas-data/Inbox
+<span class="c"># 下载从这个文件中找到的urls, 需自己建立这个文件</span>
+<span class="c"># touch /home/pi/.aria2/aria2.session</span>
+input-file<span class="o">=</span>/home/pi/.aria2/aria2.session
+<span class="c"># 最大同时下载任务数，默认 5</span>
+<span class="c">#max-concurrent-downloads=5</span>
+<span class="c"># 断点续传，只适用于 HTTP(S)/FTP</span>
+<span class="k">continue</span><span class="o">=</span><span class="nb">true</span>
+
+<span class="c"># HTTP/FTP 配置</span>
+<span class="c"># 关闭连接如果下载速度等于或低于这个值，默认 0</span>
+<span class="c">#lowest-speed-limit=0</span>
+<span class="c"># 对于每个下载在同一个服务器上的连接数，默认 1</span>
+max-connection-per-server<span class="o">=</span>5
+<span class="c"># 每个文件最小分片大小，例如文件 20M，设置 size 为 10M, 则用2个连接下载，默认 20M</span>
+<span class="c">#min-split-size=10M</span>
+<span class="c"># 下载一个文件的连接数，默认 5</span>
+<span class="c">#split=5</span>
+
+<span class="c"># BT 特殊配置</span>
+<span class="c"># 启用本地节点查找，默认 false</span>
+bt-enable-lpd<span class="o">=</span><span class="nb">true</span>
+<span class="c"># 指定最大文件数对于每个 bt 下载，默认 100</span>
+<span class="c">#bt-max-open-files=100</span>
+<span class="c"># 单种子最大连接数，默认 55</span>
+<span class="c">#bt-max-peers=55</span>
+<span class="c"># 设置最低的加密级别，可选全连接加密 arc4，默认是头加密 plain</span>
+<span class="c">#bt-min-crypto-level=plain</span>
+<span class="c"># 总是使用 obfuscation handshake，防迅雷必备，默认 false</span>
+bt-require-crypto<span class="o">=</span><span class="nb">true</span>
+<span class="c"># 如果下载的是种子文件则自动解析并下载，默认 true</span>
+<span class="c">#follow-torrent=true</span>
+<span class="c"># 为 BT 下载设置 TCP 端口号，确保开放这些端口，默认 6881-6999</span>
+listen-port<span class="o">=</span>65298
+<span class="c">#Set UDP listening port used by DHT(IPv4, IPv6) and UDP tracker</span>
+dht-listen-port<span class="o">=</span>65298
+<span class="c"># 整体上传速度限制，0 表示不限制，默认 0</span>
+<span class="c">#max-overall-upload-limit=0</span>
+<span class="c"># 每个下载上传速度限制，默认 0</span>
+<span class="c">#max-upload-limit=0</span>
+<span class="c"># 种子分享率大于1, 则停止做种，默认 1.0</span>
+<span class="c">#seed-ratio=1</span>
+<span class="c"># 做种时间大于2小时，则停止做种</span>
+seed-time<span class="o">=</span>120
+
+<span class="c"># RPC 配置</span>
+<span class="c"># 开启 JSON-RPC/XML-RPC 服务，默认 false</span>
+<span class="nb">enable</span>-rpc<span class="o">=</span><span class="nb">true</span>
+<span class="c"># 允许所有来源，web 界面跨域权限需要，默认 false</span>
+rpc-allow-origin-all<span class="o">=</span><span class="nb">true</span>
+<span class="c"># 允许外部访问，默认 false</span>
+rpc-listen-all<span class="o">=</span><span class="nb">true</span>
+<span class="c"># rpc 端口，默认 6800</span>
+rpc-listen-port<span class="o">=</span>6800
+<span class="c"># 设置最大的 JSON-RPC/XML-RPC 请求大小，默认 2M</span>
+<span class="c">#rpc-max-request-size=2M</span>
+<span class="c"># rpc 密码，可不设置</span>
+<span class="c">#rpc-passwd=raspberry</span>
+<span class="c"># rpc 用户名，可不设置</span>
+<span class="c">#rpc-user=aria2pi</span>
+
+<span class="c"># 高级配置</span>
+<span class="c"># This is useful if you have to use broken DNS and</span>
+<span class="c"># want to avoid terribly slow AAAA record lookup.</span>
+<span class="c"># 默认 false</span>
+disable-ipv6<span class="o">=</span><span class="nb">true</span>
+<span class="c"># 指定文件分配方法，预分配能有效降低文件碎片，提高磁盘性能，缺点是预分配时间稍长</span>
+<span class="c"># 如果使用新的文件系统，例如 ext4 (with extents support), btrfs, xfs or NTFS(MinGW build only), falloc 是最好的选择</span>
+<span class="c"># 如果设置为 none，那么不预先分配文件空间，默认 prealloc</span>
+file-allocation<span class="o">=</span>falloc
+<span class="c"># 整体下载速度限制，默认 0</span>
+<span class="c">#max-overall-download-limit=0</span>
+<span class="c"># 每个下载下载速度限制，默认 0</span>
+<span class="c">#max-download-limit=0</span>
+<span class="c"># 保存错误或者未完成的下载到这个文件</span>
+<span class="c"># 和基本配置中的 input-file 一起使用，那么重启后仍可继续下载</span>
+save-session<span class="o">=</span>/home/pi/.aria2/aria2.session
+<span class="c"># 每5分钟自动保存错误或未完成的下载，如果为 0, 只有 aria2 正常退出才回保存，默认 0</span>
+save-session-interval<span class="o">=</span>300
+
+<span class="c"># 若要用于 PT 下载，需另外的配置，这里没写</span>
+</code></pre>
+</div>
+
+<p>3.为RPC加入验证</p>
+
+<p>使用token验证：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code># token验证
+rpc-secret=secret
+</code></pre>
+</div>
+
+<p>此处secret为你的验证码</p>
+
+<p><strong><em>在YAAW中使用 <a href="http://token:secret@hostname:port/jsonrpc">http://token:secret@hostname:port/jsonrpc</a> 的地址格式设置secret.</em></strong></p>
+
+<p>或者使用用户名&amp;密码（1.15.2以上，1.18.6以下版本）</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>#用户名
+rpc-user=username
+#密码
+rpc-passwd=passwd
+</code></pre>
+</div>
+
+<p><strong><em>在YAAW中使用 <a href="http://username:passwd@hostname:port/jsonrpc">http://username:passwd@hostname:port/jsonrpc</a> 的地址格式设置密码.</em></strong></p>
+
+<p>进行测试：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>aria2c --conf-path=/home/pi/.aria2/aria2.conf
+</code></pre>
+</div>
+
+<p>没有提示任何错误信息，那就按Ctrl+C停止。</p>
+
+<p>4.为 aria2 添加自启动服务</p>
+
+<p>1) 新建 sudo vim /etc/init.d/aria2c 文件，输入以下内容</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="c">#! /bin/sh</span>
+<span class="c"># /etc/init.d/aria2c</span>
+
+<span class="c">### BEGIN INIT INFO</span>
+<span class="c"># Provides: aria2c</span>
+<span class="c"># Required-Start:    $network $local_fs $remote_fs</span>
+<span class="c"># Required-Stop:     $network $local_fs $remote_fs</span>
+<span class="c"># Default-Start:     2 3 4 5</span>
+<span class="c"># Default-Stop:      0 1 6</span>
+<span class="c"># Short-Description: aria2c RPC init script.</span>
+<span class="c"># Description: Starts and stops aria2 RPC services.</span>
+<span class="c">### END INIT INFO</span>
+
+<span class="c">#VAR</span>
+<span class="nv">RUN</span><span class="o">=</span><span class="s2">"/usr/bin/aria2c"</span>
+<span class="nv">ARIA_PID</span><span class="o">=</span><span class="k">$(</span>ps ux | awk <span class="s1">'/aria2c --daemon=true --enable-rpc/ &amp;&amp; !/awk/ {print $2}'</span><span class="k">)</span>
+
+<span class="c"># Carry out specific functions when asked to by the system</span>
+<span class="k">case</span> <span class="s2">"</span><span class="nv">$1</span><span class="s2">"</span> <span class="k">in
+  </span>start<span class="p">)</span>
+    <span class="nb">echo</span> <span class="s2">"Starting script aria2c "</span>
+    <span class="k">if</span> <span class="o">[</span> -z <span class="s2">"</span><span class="nv">$ARIA_PID</span><span class="s2">"</span> <span class="o">]</span>; <span class="k">then</span>
+      <span class="nv">$RUN</span> --daemon<span class="o">=</span><span class="nb">true</span> --enable-rpc<span class="o">=</span><span class="nb">true</span> -D --conf-path<span class="o">=</span>/home/pi/.aria2/aria2.conf
+      <span class="nb">echo</span> <span class="s2">"Started"</span>
+    <span class="k">else
+      </span><span class="nb">echo</span> <span class="s2">"aria2c already started"</span>
+    <span class="k">fi</span>
+    <span class="p">;;</span>
+  stop<span class="p">)</span>
+    <span class="nb">echo</span> <span class="s2">"Stopping script aria2c"</span>
+    <span class="k">if</span> <span class="o">[</span> ! -z <span class="s2">"</span><span class="nv">$ARIA_PID</span><span class="s2">"</span> <span class="o">]</span>; <span class="k">then
+      </span><span class="nb">kill</span> <span class="nv">$ARIA_PID</span>
+    <span class="k">fi
+    </span><span class="nb">echo</span> <span class="s2">"OK"</span>
+    <span class="p">;;</span>
+  restart<span class="p">)</span>
+    <span class="nb">echo</span> <span class="s2">"Restarting script aria2c"</span>
+    <span class="k">if</span> <span class="o">[</span> ! -z <span class="s2">"</span><span class="nv">$ARIA_PID</span><span class="s2">"</span> <span class="o">]</span>; <span class="k">then
+      </span><span class="nb">kill</span> <span class="nv">$ARIA_PID</span>
+    <span class="k">fi
+    </span>sleep 3   <span class="c"># TODO:Maybe need to be adjust</span>
+    <span class="nv">$RUN</span> --daemon<span class="o">=</span><span class="nb">true</span> --enable-rpc<span class="o">=</span><span class="nb">true</span> -D --conf-path<span class="o">=</span>/home/pi/.aria2/aria2.conf
+    <span class="nb">echo</span> <span class="s2">"OK"</span>
+    <span class="p">;;</span>
+  status<span class="p">)</span>
+    <span class="k">if</span> <span class="o">[</span> ! -z <span class="s2">"</span><span class="nv">$ARIA_PID</span><span class="s2">"</span> <span class="o">]</span>; <span class="k">then
+      </span><span class="nb">echo</span> <span class="s2">"The aria2c is running with PID = "</span><span class="nv">$ARIA_PID</span>
+    <span class="k">else
+      </span><span class="nb">echo</span> <span class="s2">"No process found for aria2c RPC"</span>
+    <span class="k">fi</span>
+    <span class="p">;;</span>
+  <span class="k">*</span><span class="p">)</span>
+    <span class="nb">echo</span> <span class="s2">"Usage: /etc/init.d/aria2c {start|stop|restart|status}"</span>
+    <span class="nb">exit </span>1
+    <span class="p">;;</span>
+<span class="k">esac</span>
+<span class="nb">exit </span>0
+
+</code></pre>
+</div>
+
+<p>2) 添加可执行权限</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo chmod +x /etc/init.d/aria2c
+</code></pre>
+</div>
+
+<p>3) 然后更新rc，添加自启动服务</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo update-rc.d aria2c defaults
+</code></pre>
+</div>
+
+<p>4) 最后重启aria2c服务</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo service aria2c restart
+</code></pre>
+</div>
+
+<p>5.安装web 前端yaaw</p>
+
+<p>1) 首先需要安装需要安装 nginx</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo apt-get install nginx –y
+</code></pre>
+</div>
+
+<p>2) 接下来我们来配置nginx</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo vim /etc/nginx/nginx.conf
+</code></pre>
+</div>
+
+<p>做如下配置：</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>user www-data; <span class="c">#默认以www-data运行工作进程</span>
+worker_processes 1; <span class="c">#单工作进程足够了，就我自己访问</span>
+worker_connections 256; <span class="c">#一般支持100在线连接就达到raspberry pi的极限了</span>
+gzip on;  <span class="c">#gzip开启取消前面的#让默认设置生效即可，可以加快网页访问速度</span>
+gzip_disable <span class="s2">"msie6"</span>;
+gzip_vary on;
+gzip_proxied any;
+gzip_comp_level 6;
+gzip_buffers 16 8k;
+gzip_http_version 1.1;
+gzip_types text/plain text/css application/json application/x-javascript text/xml application/xml application/xml+rss text/javascript;
+</code></pre>
+</div>
+
+<p>3) 配置站点属性</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo vim /etc/nginx/sites-availiable/default
+</code></pre>
+</div>
+
+<p>配置如下内容：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>server {
+listen 81; # 访问端口号
+#listen [::]:80 default_server; # 一定要注释掉，ipv6
+server_name pi.com;
+root /var/www/html; #站点存储位置
+</code></pre>
+</div>
+
+<p>4) 测试配置文件</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo nginx -t
+</code></pre>
+</div>
+
+<p>没有问题则会显示：</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>nginx: the configuration file /etc/nginx/nginx.conf syntax is ok
+nginx: configuration file /etc/nginx/nginx.conf <span class="nb">test </span>is successful
+</code></pre>
+</div>
+
+<p>5) 创建目录，然后设置权限</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo mkdir /var/www <span class="o">&amp;&amp;</span> sudo mkdir /var/www/html
+sudo chown -R www-data:www-data /var/www/html
+sudo chmod -R 0755 /var/www/html
+</code></pre>
+</div>
+
+<p>6) 下载yaaw</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo git clone https://github.com/binux/yaaw.git /var/www/html/
+</code></pre>
+</div>
+
+<p>7)重启nginx</p>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>sudo service nginx restart
+</code></pre>
+</div>
+
+<p>到这一步了，现在我们通过<a href="http://192.168.1.118:81/webui-aria2/">http://192.168.1.118:81/yaww/</a> 来访问（把ip修改为树莓派的IP地址）</p>
+
+  <hr>
+  
+  <span class="post-date metafoot" itemprop="datePublished" content="2017-01-24"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" itemprop="url" title="Permanent link to this post">24 Jan 2017</a> </i></span>
+  
+  <span class="post-tags" itemprop="keywords" content="RaspberryPi and Linux"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#RaspberryPi" title="Pages tagged RaspberryPi" rel="tag">RaspberryPi</a> &bull;  <a href="http://localhost:4000/tags/#Linux" title="Pages tagged Linux" rel="tag">Linux</a></span>
+    
+      <span class="social-icons"><a href="https://twitter.com/share?text=树莓派折腾-aria2离线下载&amp;url=http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/&amp;via="  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
+
+<a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
+</span>
+
+    
+</div>
+
+
+  <div class="printMsg">
+<table>
+  <thead>
+    <tr>
+      <th><i class="fa fa-twitter">@</i></th>
+      <th>QR code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><i class="fa fa-anchor"> http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/</i><br /><i class="fa fa-calendar"> 24-Jan-17</i><br /><i class="fa fa-creative-commons"> BY-NC-SA 4.0 http://localhost:4000/disclosure</i></td>
+      <td><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/&choe=UTF-8" alt="http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" /></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<div class="page-break"></div>
+<div class="related">
+  <h2>Related Posts</h2>
+<ul>
+  
+    
+  
+     
+       
+        
+       
+        
+          <li><a href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">CentOS6.5 配置FTP服务器</a><br /></li>
+          
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+</ul>
+</div>
+
+<div class="prevnext">
+  
+    <a class="prevnext-item older" href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/" title="CentOS6.5 配置FTP服务器">Older</a>
+  
+  
+    <span class="prevnext-item older">Newer</span>
+  
+</div>
+
+<div class="page-break"></div>
+
+<div id="disqus_thread"></div><!-- /#disqus_thread -->
+
+                    <div class="custom-footer" style="display: block;">
+            <div class="footer-social-icons">
+            <ul class="social-icons">
+            
+              
+            <li><a href="https://github.com/alicture" rel="me"  target="_blank"  class="social-icons" title="Code repository"> <i class="fa fa-github-square fa-2x"></i></a></li>
+            
+              
+            <li><a href="http://localhost:4000/contact/" rel="me"  class="social-icons" title="Reach Us"> <i class="fa fa-envelope-square fa-2x"></i></a></li>
+            
+              
+            <li><a href="http://localhost:4000/feed.xml" rel="me"  class="social-icons" title="Subscribe to RSS"> <i class="fa fa-rss-square fa-2x"></i></a></li>
+                      
+            </ul>
+            </div>
+            <h6 class="text-footer"><a rel="license" href="http://localhost:4000/disclosure/" title="CC BY-NC-SA 4.0 License, link to site disclosure" class="social-icon"><i class="fa fa-creative-commons"></i></a> <a rel="license" href="http://localhost:4000/disclosure/" title="CC BY-NC-SA 4.0 License, link to site disclosure">2015-2017</a>: <a href="http://localhost:4000" title="Home">Alicture.com</a> | <a href="http://localhost:4000/about/" rel="me">About</a> | <a href="http://webchat.freenode.net?channels=Alicture%27s%20blog&uio=MTE9MTY02b" tittle="chatroom">Chatroom</a></h6>
+            </div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+    
+
+<!-- gist embed -->
+
+
+<!-- disqus comments -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'alicture'; 
+    var disqus_identifier = 'http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</body>
+</html>

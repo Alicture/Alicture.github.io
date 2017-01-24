@@ -33,6 +33,11 @@ callback([
   {
     "text": "CentOS6.5 配置FTP服务器",
     "href": "http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/"
+  } ,
+
+  {
+    "text": "树莓派折腾-aria2离线下载",
+    "href": "http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/"
   } 
 
 ])

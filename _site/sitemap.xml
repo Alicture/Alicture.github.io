@@ -3,6 +3,21 @@
   
     
     <url>
+      <loc>http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/</loc>
+      
+        <lastmod>2017-01-24T00:00:00+08:00</lastmod>
+      
+      
+        <changefreq>monthly</changefreq>
+      
+      
+        <priority>0.5</priority>
+      
+    </url>
+    
+  
+    
+    <url>
       <loc>http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/</loc>
       
         <lastmod>2017-01-24T00:00:00+08:00</lastmod>
@@ -143,7 +158,7 @@
     <url>
       <loc>http://localhost:4000/archive/</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -190,7 +205,7 @@
     <url>
       <loc>http://localhost:4000/disclosure/</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -207,7 +222,7 @@
     <url>
       <loc>http://localhost:4000/feed.xml</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -222,7 +237,7 @@
     <url>
       <loc>http://localhost:4000/humans.txt</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -237,7 +252,7 @@
     <url>
       <loc>http://localhost:4000/blog/</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -252,7 +267,7 @@
     <url>
       <loc>http://localhost:4000/</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -267,7 +282,7 @@
     <url>
       <loc>http://localhost:4000/links.jsonp</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -301,7 +316,7 @@
     <url>
       <loc>http://localhost:4000/readme/</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -318,7 +333,7 @@
     <url>
       <loc>http://localhost:4000/rfeed.xml</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -335,7 +350,7 @@
     <url>
       <loc>http://localhost:4000/sitemap.xml</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
@@ -352,7 +367,7 @@
     <url>
       <loc>http://localhost:4000/blog/page2/</loc>
       
-        <lastmod>2017-01-24T11:31:06+08:00</lastmod>
+        <lastmod>2017-01-24T23:45:53+08:00</lastmod>
       
       
         <changefreq>monthly</changefreq>
