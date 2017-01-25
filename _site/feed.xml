@@ -5,11 +5,179 @@
     <description>Alicture's blog...</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <updated>2017-01-24T23:45:53+08:00</updated>
+    <updated>2017-01-25T14:04:29+08:00</updated>
     <id>http://localhost:4000</id>
     <author>
       <name>alicture</name>
     </author>
+    
+      <item>
+        <title>树莓派折腾-ngrok内网穿透</title>
+        
+          <description>&lt;p&gt;ngrok分为客户端和服务端两部分。要实现内网穿透，从互联网访问到在局域网中的树莓派。还需要在一个具有公网IP的vps上部署服务端。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;h1 id=&quot;一服务端部署&quot;&gt;一.服务端部署&lt;/h1&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;我用的是腾讯云的CentOS6.5。以下都以CentOS的操作为主。&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h3 id=&quot;1首先准备安装编译ngrok所需组件&quot;&gt;1.首先准备安装编译ngrok所需组件&lt;/h3&gt;
+
+&lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;yum -y install install build-essential golang mercurial
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;&lt;strong&gt;&lt;em&gt;注意：CentOS自带的git版本太低，会导致ngrok编译失败卸载安装新版本&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;卸载使用whereis找到git路径手动卸载。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;whereis git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;rm -rf /usr/bin/git
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;下载：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd ~
+wget https://www.kernel.org/pub/software/scm/git/git-2.6.0.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;解压：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;tar zxvf git-2.6.0.tar.gz
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;编译git：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;cd git-2.6.0
+./configure –prefix=/usr/local/git
+make
+make install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;创建软连接：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;ln -s /usr/local/git/bin/* /usr/bin/
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;此时&lt;code class=&quot;highlighter-rouge&quot;&gt;git version&lt;/code&gt;得到：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git version 2.6.0
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;h3 id=&quot;2安装编译ngrok服务端&quot;&gt;2.安装编译ngrok服务端&lt;/h3&gt;
+
+&lt;p&gt;获取源码：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;git clone https://github.com/tutumcloud/ngrok.git ngrok
+cd ngrok
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;生成证书并替换源码里的证书：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;NGROK_DOMAIN=&quot;alicture.com&quot;
+
+openssl genrsa -out base.key 2048
+openssl req -new -x509 -nodes -key base.key -days 10000 -subj &quot;/CN=$NGROK_DOMAIN&quot; -out base.pem
+openssl genrsa -out server.key 2048
+openssl req -new -key server.key -subj &quot;/CN=$NGROK_DOMAIN&quot; -out server.csr
+openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt
+
+cp base.pem assets/client/tls/ngrokroot.crt
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;编译：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo make release-server
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;一切正常的话此时ngrok/bin下就有了ngrokd 这个可执行文件。&lt;/p&gt;
+
+&lt;p&gt;测试一下：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo ./bin/ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain=&quot;alicture.com&quot; -httpAddr=&quot;:8081&quot; -httpsAddr=&quot;:8082&quot;
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;此时访问https://alicture.com:8081和https://alicture.com:8082可以访问到ngrokd服务了。&lt;/p&gt;
+
+&lt;p&gt;可以看到:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;Tunnel alicture.com:8081 not found
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;下面我们来为树莓派编译客户端。&lt;/p&gt;
+
+&lt;h1 id=&quot;二客户端&quot;&gt;二.客户端&lt;/h1&gt;
+
+&lt;p&gt;树莓派使用的操作系统是Raspbian一种基于Debian的ARM架构操作系统。所以编译环境：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo GOOS=linux GOARCH=arm make release-client
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;编译完成后在ngrok/bin下会出现一个linux_arm文件，其中包含的就是ngrok客户端。&lt;/p&gt;
+
+&lt;p&gt;使用ftp服务拷贝到树莓派中。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;sudo vim ngrok.cfg
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;配置ngrok.cfg映射aria2前端以及RPC端口，ssh远程访问端口：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt; server_addr: alicture.com:4443
+ trust_host_root_certs: false
+ tunnels:
+   client:
+     proto:
+       https: 8082
+   rpc:
+     proto:
+       http: 6800
+   ssh:
+     proto:
+       tcp: 22
+     remote_port: 5550
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;启动服务：&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;screen ./ngrok -config=./ngrok.cfg start client rpc ssh
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;成功：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/mw690/76731d17gy1fc2u39c7cdj20wi0mcqi4.jpg&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;通过浏览器访问：&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://ww1.sinaimg.cn/mw690/76731d17gy1fc2u9cieszj21kw0hc76q&quot; alt=&quot;&quot; /&gt;&lt;/p&gt;
+
+&lt;p&gt;这样就实现了外网访问局域网中树莓派并实现离线下载。&lt;/p&gt;
+</description>
+        
+        <pubDate>Wed, 25 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</guid>
+      </item>
     
       <item>
         <title>树莓派折腾-aria2离线下载</title>
@@ -369,7 +537,8 @@ sudo chmod -R 0755 /var/www/html
 &lt;div class=&quot;language-bash highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nv&quot;&gt;anonymous_enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;NO //设定不允许匿名访问
 &lt;span class=&quot;nv&quot;&gt;local_enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;YES //设定本地用户可以访问。注：如使用虚拟宿主用户，在该项目设定为NO的情况下所有虚拟用户将无法访问
 &lt;span class=&quot;nv&quot;&gt;chroot_list_enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;YES //使用户不能离开主目录
-&lt;span class=&quot;nv&quot;&gt;ascii_upload_enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;nv&quot;&gt;YESascii_download_enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;YES //设定支持ASCII模式的上传和下载功能
+&lt;span class=&quot;nv&quot;&gt;ascii_upload_enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;YES
+&lt;span class=&quot;nv&quot;&gt;ascii_download_enable&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;YES //设定支持ASCII模式的上传和下载功能
 &lt;span class=&quot;nv&quot;&gt;pam_service_name&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;=&lt;/span&gt;vsftpd //PAM认证文件名。PAM将根据/etc/pam.d/vsftpd进行认证
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
@@ -411,6 +580,14 @@ sudo chmod -R 0755 /var/www/html
 account required pam_userdb.so db=/etc/vsftpd/vuser_passwd
 &lt;/code&gt;&lt;/pre&gt;
 &lt;/div&gt;
+
+&lt;p&gt;注意/etc/vsftpd/chroot_list文件中设置虚拟用户。&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;vim /etc/vsftpd/chroot_list
+&lt;/code&gt;&lt;/pre&gt;
+&lt;/div&gt;
+
+&lt;p&gt;写入虚拟用户（即此处test）&lt;/p&gt;
 
 &lt;p&gt;最后，创建虚拟用户配置文件&lt;/p&gt;
 

@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<!--  
+====================================================
+Homepage: http://localhost:4000
+Credits: http://localhost:4000/disclosure
+====================================================
+-->
+<head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb#">
+<!-- link href="http://gmpg.org/xfn/11" rel="profile" -->
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+<!-- Enable responsiveness on mobile devices-->
+<meta name="HandheldFriendly" content="True">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+<title>
+  
+    树莓派折腾-ngrok内网穿透 &middot; Alicture
+  
+</title>
+
+<!-- Search Engine Optimization -->
+<meta name="description" content="树莓派折腾-ngrok内网穿透">
+<meta name="keywords" content="RaspberryPi, Linux">
+
+
+
+
+
+<meta name="twitter:title" content="树莓派折腾-ngrok内网穿透">
+<meta name="twitter:description" content="树莓派折腾-ngrok内网穿透">
+<meta name="twitter:creator" content="@">
+<!-- End Twitter Cards -->
+
+<!-- Open Graph -->
+<meta property="og:locale" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:title" content="树莓派折腾-ngrok内网穿透">
+<meta property="og:description" content="树莓派折腾-ngrok内网穿透">
+<meta property="og:url" content="http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+<meta property="og:site_name" content="Alicture">
+
+<meta property="og:image" content="http://www.alicture.com/images/sitelogo.png">
+
+<meta property="fb:app_id" content="1003108156422006">
+<meta property="fb:admins" content="817465054">
+
+<!-- Fonts -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Serif:400,400italic,700%7CPT+Sans:400|Tangerine|Inconsolata">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/public/css/iconmoon.css">
+
+<!-- CSS -->
+<link rel="stylesheet" href="/public/css/style.min.css">
+
+<!-- Add-on CSS to override system-wide defaults -->
+<link rel="stylesheet" href="/public/css/addon.css">
+
+<!-- CSS override per page -->
+
+
+<!-- Java scripts -->
+<!-- <script src="/public/js/jquery.min.js"></script> -->
+
+<!-- Icons -->
+<!-- 16x16 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
+<!-- 32x32 -->
+<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
+<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
+<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/icons/apple-touch-icon-precomposed.png">
+<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/icons/apple-touch-icon-72x72-precomposed.png">
+<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/icons/apple-touch-icon-114x114-precomposed.png">
+<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/icons/apple-touch-icon-144x144-precomposed.png">
+<!-- 180x180 (precomposed) for iPhone 6 -->
+<link rel="apple-touch-icon-precomposed" sizes="180x180" href="http://localhost:4000/images/icons/apple-touch-icon-180x180.png">
+<!-- 192x192 (precomposed) for Android -->
+<link rel="icon" type="image/png" sizes="192x192"  href="http://localhost:4000/images/icons/android-icon-192x192.png">
+
+
+<link rel="canonical" href="http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">
+
+
+<!-- RSS -->
+<link rel="alternate" type="application/rss+xml" title="RSS" href="http://localhost:4000/feed.xml">
+
+
+
+</head>
+
+
+<body>
+
+<!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+<!--   <div class="sidebar-item">
+    <p>Alicture's blog...</p>
+  </div> -->
+
+  <nav class="sidebar-nav">
+    <!-- a class="sidebar-nav-item" href="/">Home</a-->
+
+    
+
+    
+
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/"><i class="iconside iconm-home"></i> Home</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/about/"><i class="iconside iconm-user"></i> About</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/blog/"><i class="iconside iconm-quill"></i> Blog</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/tags/"><i class="fa fa-tags"></i> Tags</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/archive/"><i class="fa fa-archive"></i> Archive</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/contact/"><i class="iconside iconm-envelop"></i> Contact</a>
+                
+    
+            
+                    <a class="sidebar-nav-item" href="http://localhost:4000/feed.xml"><i class="iconside iconm-feed2"></i> Feed</a>
+                
+         
+
+    
+  </nav>
+
+<hr class="gh">
+
+
+<div id="searchbox2" style="margin:0 auto; display: table;">
+<div class="searchcont2">
+    <!-- span class="searchicon2"><i class="fa fa-search fa-2x"></i></span -->
+    <form role="search" method="get" action="http://localhost:4000/cse/">
+        <input id="searchString2" name="searchString2"
+               placeholder=" Search" type="text">
+    </form>
+</div>
+</div>
+
+
+</div>
+
+
+    <!-- Wrap is the content to shift when toggling the sidebar. We wrap the
+         content to avoid any CSS collisions with our real content. -->
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href="/" title="Home">Alicture</a>
+            <!-- <small></small> -->
+            <div class="headicons">
+              <small><a href="http://localhost:4000/about" rel="me" title="About"><i class="iconm iconm-user"></i></a></small>
+              <small><a href="http://localhost:4000/blog" rel="me" title="Blog"><i class="iconm iconm-quill"></i></a></small>
+              <small><a href="http://localhost:4000/contact" rel="me" title="Contact"><i class="iconm iconm-envelop"></i></a></small> 
+            </div>           
+          </h3>
+        </div>
+      </div>
+
+      <div class="container content">
+        <div class="post">
+  <h1 itemprop="name" class="post-title">树莓派折腾-ngrok内网穿透</h1>
+  <span class="post-date" itemprop="datePublished" content="2017-01-25"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" itemprop="url" title="Permanent link to this post">25 Jan 2017</a> </i></span>
+  
+  <span class="post-tags" itemprop="keywords" content="RaspberryPi and Linux"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#RaspberryPi" title="Pages tagged RaspberryPi" rel="tag">RaspberryPi</a> &bull;  <a href="http://localhost:4000/tags/#Linux" title="Pages tagged Linux" rel="tag">Linux</a></span>
+    
+      <span class="social-icons"><a href="https://twitter.com/share?text=树莓派折腾-ngrok内网穿透&amp;url=http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/&amp;via="  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
+
+<a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
+</span>
+
+    
+  <p>ngrok分为客户端和服务端两部分。要实现内网穿透，从互联网访问到在局域网中的树莓派。还需要在一个具有公网IP的vps上部署服务端。</p>
+
+<!--more-->
+
+<h1 id="一服务端部署">一.服务端部署</h1>
+
+<blockquote>
+  <p>我用的是腾讯云的CentOS6.5。以下都以CentOS的操作为主。</p>
+</blockquote>
+
+<h3 id="1首先准备安装编译ngrok所需组件">1.首先准备安装编译ngrok所需组件</h3>
+
+<div class="language-bash highlighter-rouge"><pre class="highlight"><code>yum -y install install build-essential golang mercurial
+</code></pre>
+</div>
+
+<p><strong><em>注意：CentOS自带的git版本太低，会导致ngrok编译失败卸载安装新版本</em></strong></p>
+
+<p>卸载使用whereis找到git路径手动卸载。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>whereis git
+</code></pre>
+</div>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>rm -rf /usr/bin/git
+</code></pre>
+</div>
+
+<p>下载：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd ~
+wget https://www.kernel.org/pub/software/scm/git/git-2.6.0.tar.gz
+</code></pre>
+</div>
+
+<p>解压：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>tar zxvf git-2.6.0.tar.gz
+</code></pre>
+</div>
+
+<p>编译git：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>cd git-2.6.0
+./configure –prefix=/usr/local/git
+make
+make install
+</code></pre>
+</div>
+
+<p>创建软连接：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>ln -s /usr/local/git/bin/* /usr/bin/
+</code></pre>
+</div>
+
+<p>此时<code class="highlighter-rouge">git version</code>得到：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git version 2.6.0
+</code></pre>
+</div>
+
+<h3 id="2安装编译ngrok服务端">2.安装编译ngrok服务端</h3>
+
+<p>获取源码：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>git clone https://github.com/tutumcloud/ngrok.git ngrok
+cd ngrok
+</code></pre>
+</div>
+
+<p>生成证书并替换源码里的证书：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>NGROK_DOMAIN="alicture.com"
+
+openssl genrsa -out base.key 2048
+openssl req -new -x509 -nodes -key base.key -days 10000 -subj "/CN=$NGROK_DOMAIN" -out base.pem
+openssl genrsa -out server.key 2048
+openssl req -new -key server.key -subj "/CN=$NGROK_DOMAIN" -out server.csr
+openssl x509 -req -in server.csr -CA base.pem -CAkey base.key -CAcreateserial -days 10000 -out server.crt
+
+cp base.pem assets/client/tls/ngrokroot.crt
+</code></pre>
+</div>
+
+<p>编译：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo make release-server
+</code></pre>
+</div>
+
+<p>一切正常的话此时ngrok/bin下就有了ngrokd 这个可执行文件。</p>
+
+<p>测试一下：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo ./bin/ngrokd -tlsKey=server.key -tlsCrt=server.crt -domain="alicture.com" -httpAddr=":8081" -httpsAddr=":8082"
+</code></pre>
+</div>
+
+<p>此时访问https://alicture.com:8081和https://alicture.com:8082可以访问到ngrokd服务了。</p>
+
+<p>可以看到:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>Tunnel alicture.com:8081 not found
+</code></pre>
+</div>
+
+<p>下面我们来为树莓派编译客户端。</p>
+
+<h1 id="二客户端">二.客户端</h1>
+
+<p>树莓派使用的操作系统是Raspbian一种基于Debian的ARM架构操作系统。所以编译环境：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo GOOS=linux GOARCH=arm make release-client
+</code></pre>
+</div>
+
+<p>编译完成后在ngrok/bin下会出现一个linux_arm文件，其中包含的就是ngrok客户端。</p>
+
+<p>使用ftp服务拷贝到树莓派中。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>sudo vim ngrok.cfg
+</code></pre>
+</div>
+
+<p>配置ngrok.cfg映射aria2前端以及RPC端口，ssh远程访问端口：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code> server_addr: alicture.com:4443
+ trust_host_root_certs: false
+ tunnels:
+   client:
+     proto:
+       https: 8082
+   rpc:
+     proto:
+       http: 6800
+   ssh:
+     proto:
+       tcp: 22
+     remote_port: 5550
+</code></pre>
+</div>
+
+<p>启动服务：</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>screen ./ngrok -config=./ngrok.cfg start client rpc ssh
+</code></pre>
+</div>
+
+<p>成功：</p>
+
+<p><img src="http://ww1.sinaimg.cn/mw690/76731d17gy1fc2u39c7cdj20wi0mcqi4.jpg" alt="" /></p>
+
+<p>通过浏览器访问：</p>
+
+<p><img src="http://ww1.sinaimg.cn/mw690/76731d17gy1fc2u9cieszj21kw0hc76q" alt="" /></p>
+
+<p>这样就实现了外网访问局域网中树莓派并实现离线下载。</p>
+
+  <hr>
+  
+  <span class="post-date metafoot" itemprop="datePublished" content="2017-01-25"><i class="fa fa-calendar" title="Date published"> <a class="permalink" href="http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" itemprop="url" title="Permanent link to this post">25 Jan 2017</a> </i></span>
+  
+  <span class="post-tags" itemprop="keywords" content="RaspberryPi and Linux"><i class="fa fa-tags" title="page tags"></i> <a href="http://localhost:4000/tags/#RaspberryPi" title="Pages tagged RaspberryPi" rel="tag">RaspberryPi</a> &bull;  <a href="http://localhost:4000/tags/#Linux" title="Pages tagged Linux" rel="tag">Linux</a></span>
+    
+      <span class="social-icons"><a href="https://twitter.com/share?text=树莓派折腾-ngrok内网穿透&amp;url=http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/&amp;via="  class="social-icons" target="_blank" title="Share on twitter"> <i class="fa fa-twitter meta"></i></a>
+<a href="https://plus.google.com/share?url=http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"  class="social-icons" target="_blank" title="Share on Google+"> <i class="fa fa-google-plus"></i></a>
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/"  class="social-icons" target="_blank" title="Share on LinkedIn"> <i class="fa fa-linkedin"></i></a>
+<a href="http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/#disqus_thread" class="social-icons" title="Comments"><i class="fa fa-comments"></i></a>
+
+<a href="javascript:window.print()" class="social-icons" title="Printer friendly format"><i class="fa fa-print"></i></a>
+</span>
+
+    
+</div>
+
+
+  <div class="printMsg">
+<table>
+  <thead>
+    <tr>
+      <th><i class="fa fa-twitter">@</i></th>
+      <th>QR code</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><i class="fa fa-anchor"> http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/</i><br /><i class="fa fa-calendar"> 25-Jan-17</i><br /><i class="fa fa-creative-commons"> BY-NC-SA 4.0 http://localhost:4000/disclosure</i></td>
+      <td><img src="https://chart.googleapis.com/chart?chs=150x150&cht=qr&chl=http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/&choe=UTF-8" alt="http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/" /></td>
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+
+<div class="page-break"></div>
+<div class="related">
+  <h2>Related Posts</h2>
+<ul>
+  
+    
+  
+     
+       
+        
+          <li><a href="http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/">树莓派折腾-aria2离线下载</a><br /></li>
+          
+    
+  
+     
+       
+        
+       
+        
+          <li><a href="http://localhost:4000/blog/2017/01/24/CentOS6.5-%E9%85%8D%E7%BD%AEFTP%E6%9C%8D%E5%8A%A1%E5%99%A8/">CentOS6.5 配置FTP服务器</a><br /></li>
+          
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+     
+       
+        
+       
+        
+      
+    
+  
+</ul>
+</div>
+
+<div class="prevnext">
+  
+    <a class="prevnext-item older" href="http://localhost:4000/blog/2017/01/24/%E6%8A%98%E8%85%BE%E6%A0%91%E8%8E%93%E6%B4%BE-aria2%E7%A6%BB%E7%BA%BF%E4%B8%8B%E8%BD%BD/" title="树莓派折腾-aria2离线下载">Older</a>
+  
+  
+    <span class="prevnext-item older">Newer</span>
+  
+</div>
+
+<div class="page-break"></div>
+
+<div id="disqus_thread"></div><!-- /#disqus_thread -->
+
+                    <div class="custom-footer" style="display: block;">
+            <div class="footer-social-icons">
+            <ul class="social-icons">
+            
+              
+            <li><a href="https://github.com/alicture" rel="me"  target="_blank"  class="social-icons" title="Code repository"> <i class="fa fa-github-square fa-2x"></i></a></li>
+            
+              
+            <li><a href="http://localhost:4000/contact/" rel="me"  class="social-icons" title="Reach Us"> <i class="fa fa-envelope-square fa-2x"></i></a></li>
+            
+              
+            <li><a href="http://localhost:4000/feed.xml" rel="me"  class="social-icons" title="Subscribe to RSS"> <i class="fa fa-rss-square fa-2x"></i></a></li>
+                      
+            </ul>
+            </div>
+            <h6 class="text-footer"><a rel="license" href="http://localhost:4000/disclosure/" title="CC BY-NC-SA 4.0 License, link to site disclosure" class="social-icon"><i class="fa fa-creative-commons"></i></a> <a rel="license" href="http://localhost:4000/disclosure/" title="CC BY-NC-SA 4.0 License, link to site disclosure">2015-2017</a>: <a href="http://localhost:4000" title="Home">Alicture.com</a> | <a href="http://localhost:4000/about/" rel="me">About</a> | <a href="http://webchat.freenode.net?channels=Alicture%27s%20blog&uio=MTE9MTY02b" tittle="chatroom">Chatroom</a></h6>
+            </div>
+
+      </div>
+    </div>
+
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+
+    <script>
+      (function(document) {
+        var toggle = document.querySelector('.sidebar-toggle');
+        var sidebar = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          if(!checkbox.checked ||
+             sidebar.contains(target) ||
+             (target === checkbox || target === toggle)) return;
+
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script>
+    
+
+<!-- gist embed -->
+
+
+<!-- disqus comments -->
+<script type="text/javascript">
+    /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+    var disqus_shortname = 'alicture'; 
+    var disqus_identifier = 'http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/';
+
+    /* * * DON'T EDIT BELOW THIS LINE * * */
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+</body>
+</html>

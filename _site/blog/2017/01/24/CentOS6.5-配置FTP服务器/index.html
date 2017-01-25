@@ -232,7 +232,8 @@ Credits: http://localhost:4000/disclosure
 <div class="language-bash highlighter-rouge"><pre class="highlight"><code><span class="nv">anonymous_enable</span><span class="o">=</span>NO //设定不允许匿名访问
 <span class="nv">local_enable</span><span class="o">=</span>YES //设定本地用户可以访问。注：如使用虚拟宿主用户，在该项目设定为NO的情况下所有虚拟用户将无法访问
 <span class="nv">chroot_list_enable</span><span class="o">=</span>YES //使用户不能离开主目录
-<span class="nv">ascii_upload_enable</span><span class="o">=</span><span class="nv">YESascii_download_enable</span><span class="o">=</span>YES //设定支持ASCII模式的上传和下载功能
+<span class="nv">ascii_upload_enable</span><span class="o">=</span>YES
+<span class="nv">ascii_download_enable</span><span class="o">=</span>YES //设定支持ASCII模式的上传和下载功能
 <span class="nv">pam_service_name</span><span class="o">=</span>vsftpd //PAM认证文件名。PAM将根据/etc/pam.d/vsftpd进行认证
 </code></pre>
 </div>
@@ -274,6 +275,14 @@ Credits: http://localhost:4000/disclosure
 account required pam_userdb.so db=/etc/vsftpd/vuser_passwd
 </code></pre>
 </div>
+
+<p>注意/etc/vsftpd/chroot_list文件中设置虚拟用户。</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>vim /etc/vsftpd/chroot_list
+</code></pre>
+</div>
+
+<p>写入虚拟用户（即此处test）</p>
 
 <p>最后，创建虚拟用户配置文件</p>
 
@@ -422,6 +431,13 @@ service vsftpd restart
 <div class="related">
   <h2>Related Posts</h2>
 <ul>
+  
+     
+       
+        
+          <li><a href="http://localhost:4000/blog/2017/01/25/%E6%A0%91%E8%8E%93%E6%B4%BE%E6%8A%98%E8%85%BE-ngrok%E5%86%85%E7%BD%91%E7%A9%BF%E9%80%8F/">树莓派折腾-ngrok内网穿透</a><br /></li>
+          
+    
   
      
        
