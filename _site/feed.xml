@@ -5,11 +5,46 @@
     <description>Alicture's blog...</description>
     <link>http://localhost:4000/</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
-    <updated>2017-01-25T14:04:29+08:00</updated>
+    <updated>2017-01-26T21:59:48+08:00</updated>
     <id>http://localhost:4000</id>
     <author>
       <name>alicture</name>
     </author>
+    
+      <item>
+        <title>自下而上的计算机科学（翻译）</title>
+        
+          <description>&lt;h2 id=&quot;原著&quot;&gt;原著&lt;/h2&gt;
+
+&lt;p&gt;自下而上的计算机科学，&lt;a href=&quot;https://www.bottomupcs.com/&quot;&gt;原著连接&lt;/a&gt;，作者Ian Wienand  .&lt;/p&gt;
+
+&lt;h2 id=&quot;翻译&quot;&gt;翻译&lt;/h2&gt;
+
+&lt;p&gt;使用Gitbook进行本书的翻译。&lt;/p&gt;
+
+&lt;!--more--&gt;
+
+&lt;p&gt;&lt;a href=&quot;http://csbu.alicture.com&quot;&gt;自下而上的计算机科学&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;原著还没有完结，第10章还没写完。所以好像还没有人做过翻译，出于学习目的，自己在做翻译工作。一是练习英语，二是这本书确实写的还不错。翻译的过程中也是在学习。&lt;/p&gt;
+
+&lt;p&gt;另外gitbook+github真的很不错。用了一次就爱上了。（第一次用…）&lt;/p&gt;
+
+&lt;p&gt;采用&lt;a href=&quot;https://creativecommons.org/licenses/by-sa/4.0/&quot;&gt;署名-相同方式共享4.0 国际&lt;/a&gt;许可。&lt;/p&gt;
+
+&lt;h2 id=&quot;进展速度&quot;&gt;进展速度&lt;/h2&gt;
+
+&lt;p&gt;不定期更新，每天会看一章。忙的话就会放一放，把时间让给优先级较高的事情。&lt;/p&gt;
+
+&lt;h2 id=&quot;截至日期&quot;&gt;截至日期&lt;/h2&gt;
+
+&lt;p&gt;本学期之前完成本书翻译。&lt;/p&gt;
+</description>
+        
+        <pubDate>Thu, 26 Jan 2017 00:00:00 +0800</pubDate>
+        <link>http://localhost:4000/blog/2017/01/26/%E8%87%AA%E4%B8%8B%E8%80%8C%E4%B8%8A%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/</link>
+        <guid isPermaLink="true">http://localhost:4000/blog/2017/01/26/%E8%87%AA%E4%B8%8B%E8%80%8C%E4%B8%8A%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%A7%91%E5%AD%A6/</guid>
+      </item>
     
       <item>
         <title>树莓派折腾-ngrok内网穿透</title>
