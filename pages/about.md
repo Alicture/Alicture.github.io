@@ -24,10 +24,10 @@ tags:
 profile={
     name: "Alicture",
     tags: [ "Linux User","OSX User", "Web Developer"],
-    skills: ["html", "js", "css", "java","j2ee"],
+    skills: ["html", "js", "css", "java","hadoop"],
     location: "sh, cn",
     contact: {
-        weibo: "groundwalker",
+        weibo: "橙子angry水",
         github: "https://github.com/alicture",
         email: "alicture95@gmail.com"
     }
