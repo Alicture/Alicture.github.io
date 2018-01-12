@@ -24,7 +24,7 @@ tags:
 profile={
     name: "Alicture",
     tags: [ "Linux User","OSX User", "Web Developer"],
-    skills: ["html", "js", "css", "java","hadoop"],
+    skills: ["html", "js", "css", "java","hadoop","Python"],
     location: "sh, cn",
     contact: {
         weibo: "橙子angry水",
