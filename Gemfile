@@ -11,3 +11,4 @@ end
 gem 'font-awesome-sass'
 gem 'kramdown'
 gem 'rouge'
+gem 'github-linguist'

@@ -1,5 +1,5 @@
 current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/json-1.8.6/ext/json
-/usr/local/opt/ruby/bin/ruby -r ./siteconf20180112-32088-1l34n1a.rb extconf.rb
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20180121-20872-r2pf9e.rb extconf.rb
 creating Makefile
 
 current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/json-1.8.6/ext/json

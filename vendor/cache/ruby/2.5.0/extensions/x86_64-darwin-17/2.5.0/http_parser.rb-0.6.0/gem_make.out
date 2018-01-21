@@ -1,0 +1,16 @@
+current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20180121-21590-1126j3n.rb extconf.rb
+creating Makefile
+
+current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make "DESTDIR=" clean
+
+current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make "DESTDIR="
+compiling ruby_http_parser.c
+compiling ryah_http_parser.c
+linking shared-object ruby_http_parser.bundle
+
+current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/http_parser.rb-0.6.0/ext/ruby_http_parser
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 ruby_http_parser.bundle ./.gem.20180121-21590-10971so

@@ -1,5 +1,5 @@
 current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/ffi-1.9.17/ext/ffi_c
-/usr/local/opt/ruby/bin/ruby -r ./siteconf20180112-32088-1rt8qx0.rb extconf.rb
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20180121-20872-1t42bh0.rb extconf.rb
 checking for ffi.h... no
 checking for ffi.h in /usr/local/include,/usr/include/ffi... yes
 checking for ffi_call() in -lffi... yes
@@ -57,4 +57,4 @@ linking shared-object ffi_c.bundle
 
 current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/ffi-1.9.17/ext/ffi_c
 make "DESTDIR=" install
-/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20180112-32088-l09923
+/usr/bin/install -c -m 0755 ffi_c.bundle ./.gem.20180121-20872-1oetxtt

@@ -1,0 +1,16 @@
+current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/eventmachine-1.2.5/ext/fastfilereader
+/usr/local/opt/ruby/bin/ruby -r ./siteconf20180121-21590-1isnfb3.rb extconf.rb
+creating Makefile
+
+current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/eventmachine-1.2.5/ext/fastfilereader
+make "DESTDIR=" clean
+
+current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/eventmachine-1.2.5/ext/fastfilereader
+make "DESTDIR="
+compiling mapper.cpp
+compiling rubymain.cpp
+linking shared-object fastfilereaderext.bundle
+
+current directory: /Users/luozepeng/Myspace/blog/Alicture.github.io/vendor/cache/ruby/2.5.0/gems/eventmachine-1.2.5/ext/fastfilereader
+make "DESTDIR=" install
+/usr/bin/install -c -m 0755 fastfilereaderext.bundle ./.gem.20180121-21590-1mswpm8
